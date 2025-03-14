@@ -1,0 +1,103 @@
+#home-talent {
+  .t-h {
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 200px;
+    .sh-contianer {
+      max-width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .h {
+      font-size: 4rem;
+    }
+  }
+
+  .talent-list-container {
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .talent-lists {
+    display: flex;
+    gap: 2em;
+    .talent-card {
+      width: 300px;
+      height: 500px;
+      // background: red;
+      display: grid;
+      grid-template-rows: 420px 1fr;
+      --accent: #8b2223;
+      position: relative;
+      .top {
+        position: relative;
+        overflow: hidden;
+        &::before {
+          content: url("/de/talentcard-triangle.svg");
+          position: absolute;
+          bottom: 0%;
+          left: 3%;
+          width: 50px;
+          height: 50px;
+          // border: 2px solid white;
+        }
+        .slanted {
+          background: linear-gradient(var(--accent) 40%, transparent);
+          clip-path: polygon(0 40%, 100% 25%, 100% 100%, 0% 100%);
+          width: 100%;
+          height: 100%;
+          position: absolute;
+        }
+        .line-bg {
+          outline: 2px solid var(--accent);
+          outline-offset: -30px;
+          top: 10%;
+          // clip-path: polygon(0% 0%, 100% 0, 100% 64%, 0 63%);
+          mask-image: linear-gradient(to bottom, white, transparent 50%);
+          transform-origin: center;
+          border-radius: 5em;
+          height: 100%;
+          width: 100%;
+          position: absolute;
+        }
+        .talent-art {
+          z-index: 1;
+          position: relative;
+          transform: translateY(15%);
+          transition: all 500ms ease;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+        &:hover {
+          .talent-art {
+            transform: translateY(5%);
+          }
+        }
+      }
+      .detail {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .name {
+          font-size: 3rem;
+          color: var(--accent);
+        }
+        svg {
+          fill: var(--accent);
+          path {
+            fill: var(--accent);
+          }
+        }
+      }
+    }
+  }
+
+  .action {
+    display: flex;
+    justify-content: center;
+    .btn-rb {
+    }
+  }
+}

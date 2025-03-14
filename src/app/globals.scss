@@ -1,3 +1,8 @@
+:root {
+  --rainbow: linear-gradient(90deg, #f75252 20%, #b2cc54, #67adff, #a584f3 98%);
+  --white: #e5e5e5;
+  --grey: #a5a5a5;
+}
 * {
   box-sizing: border-box;
   padding: 0;
@@ -8,7 +13,10 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
+.confine {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 button {
   padding: 0;
   outline: none;
@@ -16,18 +24,73 @@ button {
   background: none;
   text-decoration: none;
   color: black;
-  font-family: var(--fontAlt);
 }
 
 .btn {
   cursor: pointer;
-  transition: all 200ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  display: block;
+  font-family: var(--fontAlt);
   &:hover {
     scale: 1.05;
   }
   &:active {
     scale: 0.95;
   }
+  &:hover {
+    scale: initial;
+    outline: 1px solid white;
+    outline-offset: 7px;
+  }
+  &:active {
+    outline-offset: 2px;
+    scale: initial;
+  }
+}
+
+.btn-rb {
+  color: white;
+  font-family: var(--fontAlt);
+  font-size: 1.4rem;
+  background: black;
+  position: relative;
+  @extend .backglow;
+  font-weight: bold;
+  border-radius: 1em;
+  padding: 0.1em 2em;
+  margin: 1em 0;
+  // z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &:has(svg) {
+    gap: 2em;
+    padding-inline: 1em;
+  }
+}
+
+.btn-ol {
+  color: white;
+  font-family: var(--fontAlt);
+  font-size: 1.4rem;
+  background: black;
+  position: relative;
+  border: 2px solid white;
+  font-weight: bold;
+  border-radius: 1em;
+  padding: 0.1em 2em;
+  margin: 1em 0;
+  &:hover {
+    background: white;
+    color: black;
+  }
+
+  &:has(svg) {
+    gap: 2em;
+    padding-inline: 1em;
+  }
+  // z-index: 1;
 }
 
 h1,
@@ -36,14 +99,147 @@ h3,
 .h,
 .sh {
   font-family: var(--fontMain);
+  color: var(--white);
 }
 
+.h {
+  font-size: 2rem;
+}
+.sh {
+  font-size: 1.8rem;
+}
 .p,
 p {
   font-family: var(--fontMain);
+  line-height: 1.4;
+  letter-spacing: 1px;
 }
 
+html,
+body {
+  max-width: 100vw;
+  overflow-x: clip;
+  min-height: 150vh;
+}
 body {
   background: #0f0f0f url("/bg/pattern_cave.png");
   background-size: 490px;
+  color: var(--white);
+}
+
+.backglow {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: var(--rainbow);
+    border-radius: inherit;
+    z-index: -1;
+    scale: 1.01 1.09;
+    box-shadow: 0px 0px 10px 3px black;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: var(--rainbow);
+    border-radius: inherit;
+    z-index: -2;
+    scale: 1.01 1.09;
+    filter: blur(10px);
+    opacity: 1;
+  }
+}
+
+@keyframes line {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 5000;
+  }
+}
+
+.rb-line {
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    #f75252 0%,
+    #b2cc54,
+    #67adff,
+    #a584f3,
+    #f75252
+  );
+  border-radius: 1em;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    animation: inherit;
+    filter: blur(5px);
+    scale: 1.04 1.1;
+  }
+  position: relative;
+  animation: bgX 15s infinite alternate-reverse;
+}
+
+@keyframes bgX {
+  from {
+    background-position: 0px 0px;
+  }
+  to {
+    background-position: 1500px 0px;
+  }
+}
+
+// Text Rainbow
+.t-rb {
+  background: var(--rainbow);
+  background-clip: text;
+  color: transparent;
+  // filter: drop-shadow(0px 0px 5px rgba(254, 186, 186, 0.839));
+}
+
+// Text Glow white
+.t-gw {
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.59);
+}
+
+.btn-icon {
+  width: 30px;
+  height: 30px;
+  --accent: white;
+  border: 2px solid var(--accent);
+  padding: 0.5em;
+  color: var(--accent);
+  &:hover {
+    scale: 1.05;
+    color: black;
+    background: var(--accent);
+  }
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &.y {
+    --accent: #f75252;
+  }
+  &.x {
+    --accent: #b2cc54;
+  }
+  &.d {
+    --accent: #67adff;
+  }
 }

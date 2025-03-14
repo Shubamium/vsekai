@@ -1,0 +1,154 @@
+#page_home {
+  // min-height: 5000px;
+  #hero {
+    .confine {
+      max-width: 1000px;
+    }
+    article {
+      padding-top: 3em;
+
+      .sub {
+        display: flex;
+        gap: 1em;
+        align-items: center;
+        .sh {
+          font-size: 2.5rem;
+          white-space: nowrap;
+          font-weight: 300;
+          gap: 1em;
+        }
+      }
+      .h.mh {
+        font-size: 3.5rem;
+        text-transform: uppercase;
+      }
+      .action {
+        display: flex;
+        gap: 1em;
+        text-transform: uppercase;
+        .btn {
+          text-transform: uppercase;
+        }
+
+        .jaw {
+          display: flex;
+          gap: 0.45em;
+          align-items: center;
+          margin-left: 3em;
+          .j {
+            width: 40px;
+            height: 40px;
+            background: white;
+            clip-path: polygon(0 0, 100% 0, 100% 61%, 75% 100%, 0 100%, 0% 50%);
+            outline: 2px solid white;
+            clip-path: polygon(0 0, 100% 0, 100% 44%, 56% 100%, 0 100%, 0% 50%);
+            // border: 1px solid white;
+          }
+        }
+      }
+    }
+
+    .video-container {
+      max-width: 100%;
+      border-radius: 2em 2em 0 0;
+      position: relative;
+      margin-top: 20px;
+      &:hover {
+        .decor-l {
+          right: 95%;
+          top: 0%;
+        }
+        .decor-r {
+          top: 0%;
+          left: 98%;
+        }
+      }
+      .decor-l {
+        position: absolute;
+        z-index: -14;
+        top: 50%;
+        transition: all 1250ms ease;
+        right: 93%;
+      }
+      .decor-r {
+        transition: all 1250ms ease;
+        position: absolute;
+        z-index: -15;
+        left: 94%;
+        top: 20%;
+      }
+      &::before,
+      &::after {
+        scale: 1.009 0.97;
+      }
+      .video-center {
+        border-radius: inherit;
+        width: 100%;
+        aspect-ratio: 16/9;
+        margin-top: 1em;
+      }
+    }
+  }
+
+  #main-about {
+    background: linear-gradient(to right, #282828, rgb(12, 12, 12));
+    background-blend-mode: overlay;
+    background-size: cover;
+    // min-height: 900px;
+    border: 4px solid var(--grey);
+    border-left: none;
+    border-right: none;
+    position: relative;
+    z-index: 1;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      width: 100%;
+      height: 100%;
+      background: url("/bg/bg-art.png");
+      background-size: cover;
+      background-attachment: fixed;
+      z-index: -1;
+      opacity: 0.05;
+    }
+
+    .claw {
+      position: absolute;
+      scale: 0.8;
+      &.l {
+        top: 15px;
+        left: 10px;
+      }
+      &.r {
+        bottom: 15px;
+      }
+      right: 10px;
+    }
+
+    .confine {
+      max-width: 1100px;
+      // margin: 0 auto;
+      padding-block: 100px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      align-items: center;
+      margin: 3em auto;
+
+      article {
+        p {
+          margin-top: 2em;
+        }
+      }
+      figure {
+        display: flex;
+        justify-content: center;
+        img {
+          max-height: 300px;
+        }
+      }
+    }
+  }
+}

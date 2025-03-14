@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Rajdhani, Raleway } from "next/font/google";
 import "./globals.scss";
+import Header from "./header/Header";
+import { CSSProperties } from "react";
+import Footer from "./footer/Footer";
 
 const rj = Rajdhani({
   variable: "--fontAlt",
@@ -26,8 +29,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`body ${rj.className} ${raleway.className}`}>
+      <body
+        className={`body ${rj.className} ${raleway.className}`}
+        style={{ "--fontAlt": rj.style.fontFamily } as CSSProperties}
+      >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
