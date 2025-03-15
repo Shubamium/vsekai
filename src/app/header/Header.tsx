@@ -54,7 +54,10 @@ export default function Header({}: Props) {
           <Link href={"/"} className={`btn btn-nav ${true ? "active" : ""}`}>
             HOME
           </Link>
-          <Link href={"/"} className={`btn btn-nav ${true ? "active" : ""}`}>
+          <Link
+            href={"/about"}
+            className={`btn btn-nav ${true ? "active" : ""}`}
+          >
             ABOUT
           </Link>
           <Link
@@ -126,7 +129,7 @@ export default function Header({}: Props) {
             MERCHANDISE
           </Link>
           <Link
-            href={"/contact"}
+            href={"/contacts"}
             className={`btn btn-nav ${true ? "active" : ""}`}
           >
             CONTACT US
