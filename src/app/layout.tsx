@@ -4,6 +4,7 @@ import "./globals.scss";
 import Header from "./header/Header";
 import { CSSProperties } from "react";
 import Footer from "./footer/Footer";
+import QuickNav from "./quickNav/QuickNav";
 
 const rj = Rajdhani({
   variable: "--fontAlt",
@@ -36,6 +37,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <QuickNav />
       </body>
     </html>
   );

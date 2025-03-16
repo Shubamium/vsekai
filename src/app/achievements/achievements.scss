@@ -25,6 +25,22 @@
 
         .controls {
           display: flex;
+
+          .pager {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            .p {
+              width: 10px;
+              border-radius: 1em;
+              height: 10px;
+              background: white;
+              opacity: 0.2;
+              &.c {
+                opacity: 1;
+              }
+            }
+          }
           justify-content: space-between;
         }
       }

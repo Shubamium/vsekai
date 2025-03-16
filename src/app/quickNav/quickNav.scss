@@ -1,0 +1,110 @@
+#quick-nav {
+  position: fixed;
+  bottom: 0%;
+  // overflow: hidden;
+  height: 0px;
+  width: 100%;
+  pointer-events: painted;
+  user-select: contain;
+  z-index: 100;
+  .rb-line {
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
+    z-index: 15;
+  }
+
+  #qn-c {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(15%);
+    position: absolute;
+    .center {
+      display: flex;
+      padding: 0.5em 3em;
+      border-radius: 2em 2em 0 0;
+      border: 3px solid #f75252;
+      border-bottom: none;
+      justify-content: center;
+      background: url("/bg/zig.png") #131313d5;
+      backdrop-filter: blur(4px);
+      // width: 100%;
+      gap: 1em;
+    }
+    z-index: 10;
+    position: relative;
+    .btn-qn {
+      width: 150px;
+      height: 150px;
+      --accent: red;
+      background: var(--accent);
+      transform: translateY(-35%);
+      clip-path: polygon(100% 0, 100% 79%, 82% 100%, 0 99%, 0 0);
+      padding: 0.5em;
+      &:hover {
+        transform: translateY(-40%);
+        scale: 1.1;
+        transform-origin: top;
+      }
+      svg,
+      img {
+        width: 100%;
+        padding: 1em;
+        height: 100%;
+        object-fit: contain;
+        color: #232323;
+      }
+      box-shadow: 0px 0px 14px 5px black;
+
+      &:nth-of-type(1) {
+        --accent: #f75252;
+      }
+      &:nth-of-type(2) {
+        --accent: #fac03d;
+      }
+      &:nth-of-type(3) {
+        --accent: #f38845;
+      }
+      &:nth-of-type(4) {
+        --accent: #b2cc54;
+      }
+      &:nth-of-type(5) {
+        --accent: #67adff;
+      }
+      &:nth-of-type(6) {
+        --accent: #a584f3;
+      }
+    }
+    transition: all 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  .btn-ctr {
+    position: absolute;
+    left: 50%;
+    bottom: 0%;
+    transform: translateY(50%);
+    translate: -50%;
+    &:hover {
+      transform: translateY(40%);
+    }
+    &:active {
+      transform: translateY(50%);
+    }
+  }
+
+  &.open {
+    #qn-c {
+      transform: translateY(-150px);
+      user-select: initial;
+      pointer-events: initial;
+    }
+  }
+  &.closed {
+    #qn-c {
+      transform: translateY(40px);
+      user-select: none;
+      pointer-events: none;
+    }
+  }
+}

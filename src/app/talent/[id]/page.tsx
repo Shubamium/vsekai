@@ -8,11 +8,36 @@ import {
   FaPause,
   FaPlay,
   FaTwitch,
+  FaYoutube,
 } from "react-icons/fa";
+import { fetchData, urlFor } from "@/db/sanity";
+import { redirect } from "next/navigation";
+import AudioButtoin from "./AudioButtoin";
+import { FaXTwitter } from "react-icons/fa6";
 
-type Props = {};
+type Props = {
+  params: Promise<{
+    id: string;
+  }>;
+};
 
-export default function page({}: Props) {
+export default async function page({ params }: Props) {
+  const param = await params;
+  const id = param.id;
+
+  const td = await fetchData<any>(`
+		*[_type == 'talent' && s.current == '${id}']{
+			...,
+			vl ->,
+		
+		}[0]
+	`);
+
+  if (!td) {
+    redirect("/");
+  }
+
+  console.log(td);
   return (
     <main id="page_talent">
       <section id="talent">
@@ -28,20 +53,17 @@ export default function page({}: Props) {
         <div className="talent-part">
           <div className="confine">
             <div className="art">
-              <img src="/gfx/td.png" alt="" className="t-mart" />
+              <img
+                src={urlFor(td.art.hb).auto("format").url()}
+                alt=""
+                className="t-mart"
+              />
             </div>
             <div className="details">
               {/* Add Paused classed */}
-              <button className="btn btn-play  ">
-                <div className="pl">
-                  <FaPlay></FaPlay>
-                </div>
-                <div className="pa">
-                  <FaPause />
-                </div>
-              </button>
+              <AudioButtoin src={td.vl} />
               <div className="t">
-                <h2 className="name">TAIGA</h2>
+                <h2 className="name tu">{td.n}</h2>
                 <div className="rb">
                   <div className="rb-line"></div>
                   <div className="rb-line"></div>
@@ -49,15 +71,42 @@ export default function page({}: Props) {
                 </div>
               </div>
               <div className="lis"></div>
-              <p className="desc p">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. smod
-                tempor incididunt ut labore et dolore magna aliqua. od tempor
-                incididunt ut labore et.
-              </p>
+              <p className="desc p">{td.td}</p>
 
               <div className="infos">
-                <div className="info">
+                {td.i &&
+                  td.i.map((tdi: any) => {
+                    return (
+                      <div className="info" key={tdi._key}>
+                        <div className="panel">
+                          <p className="sub">{tdi.title}</p>
+                          <p className="data">{tdi.description}</p>
+                          <svg
+                            width="103"
+                            height="105"
+                            viewBox="0 0 103 105"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="edge"
+                          >
+                            <path d="M101 3V103H1L101 3Z" fill="black" />
+                            <path
+                              d="M101 3V103H1L101 3Z"
+                              stroke="white"
+                              id="stroke"
+                            />
+                            <path
+                              d="M2.5 102.5L101 2.5"
+                              stroke="white"
+                              strokeWidth="5"
+                            />
+                          </svg>
+                        </div>
+                        <div className="side"></div>
+                      </div>
+                    );
+                  })}
+                {/* <div className="info">
                   <div className="panel">
                     <p className="sub">Birthday</p>
                     <p className="data">November 29th</p>
@@ -137,34 +186,7 @@ export default function page({}: Props) {
                     </svg>
                   </div>
                   <div className="side"></div>
-                </div>
-                <div className="info">
-                  <div className="panel">
-                    <p className="sub">Birthday</p>
-                    <p className="data">November 29th</p>
-                    <svg
-                      width="103"
-                      height="105"
-                      viewBox="0 0 103 105"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="edge"
-                    >
-                      <path d="M101 3V103H1L101 3Z" fill="black" />
-                      <path
-                        d="M101 3V103H1L101 3Z"
-                        stroke="white"
-                        id="stroke"
-                      />
-                      <path
-                        d="M2.5 102.5L101 2.5"
-                        stroke="white"
-                        strokeWidth="5"
-                      />
-                    </svg>
-                  </div>
-                  <div className="side"></div>
-                </div>
+                </div> */}
               </div>
 
               <div className="stats">
@@ -175,15 +197,15 @@ export default function page({}: Props) {
                     <p>18.3k</p>
                   </div>
                   <div className="stat">
-                    <FaTwitch />
+                    <FaYoutube />
                     <p>18.3k</p>
                   </div>
                   <div className="stat">
-                    <FaTwitch />
+                    <FaXTwitter />
                     <p>18.3k</p>
                   </div>
                   <div className="stat">
-                    <FaTwitch />
+                    <img src="/gfx/fanslylogo.png" alt="" />
                     <p>18.3k</p>
                   </div>
                 </div>
@@ -223,7 +245,34 @@ export default function page({}: Props) {
         </div>
         <div className="td-v">
           <div className="confine">
-            <div className="vid">
+            {td.vd &&
+              td.vd.map((v: any) => {
+                return (
+                  <div className="vid" key={v._key}>
+                    <div className="vid-c">
+                      <iframe
+                        width="560"
+                        height="315"
+                        src={"https://www.youtube.com/embed/" + v.vId}
+                        title="YouTube video player"
+                        // frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                    <div className="vid-d">
+                      <p
+                        className="p
+									"
+                      >
+                        {v.vt}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            {/* <div className="vid">
               <div className="vid-c">
                 <iframe
                   width="560"
@@ -266,29 +315,7 @@ export default function page({}: Props) {
                   Video title here e here e heree heree here e here!!
                 </p>
               </div>
-            </div>
-            <div className="vid">
-              <div className="vid-c">
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/lYBRwWQTnJE"
-                  title="YouTube video player"
-                  // frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              <div className="vid-d">
-                <p
-                  className="p
-								"
-                >
-                  Video title here e here e heree heree here e here!!
-                </p>
-              </div>
-            </div>
+            </div> */}
           </div>
         </div>
 

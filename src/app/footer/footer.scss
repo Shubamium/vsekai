@@ -1,5 +1,5 @@
 #footer {
-  margin-top: 150px;
+  margin-top: 300px;
   .footer-content {
     min-height: 400px;
     background: linear-gradient(#202020, #181818);
@@ -53,7 +53,9 @@
         grid-template-columns: 1.2fr 1fr;
         gap: 2em;
         padding: 2em 2em;
+
         padding-left: 3em;
+        padding-bottom: 150px;
         .left {
           display: flex;
           flex-direction: column;

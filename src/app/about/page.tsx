@@ -60,17 +60,17 @@ export default function page({}: Props) {
                 <path
                   d="M126 1.00002L126 75.7068L45.5465 1.00001L126 1.00002Z"
                   stroke="white"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
                 <path
                   d="M99 22L99 96.7068L18.5465 22L99 22Z"
                   stroke="white"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
                 <path
                   d="M83 50L83 124.707L2.54654 50L83 50Z"
                   stroke="white"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
               </svg>
             </div>
