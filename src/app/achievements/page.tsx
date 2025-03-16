@@ -31,7 +31,7 @@ export default function page({}: Props) {
                 <path
                   d="M37.9691 24.5L4.79606 1.5H92.015L123.861 24.5H37.9691Z"
                   stroke="#DE8F57"
-                  stroke-width="3"
+                  strokeWidth="3"
                 />
               </svg>
 

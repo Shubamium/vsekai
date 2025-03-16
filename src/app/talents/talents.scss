@@ -1,0 +1,120 @@
+#page_talents {
+  #talent-list {
+    min-height: 100vh;
+    padding: 100px 0;
+    .confine {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 100px;
+
+      .tl-h {
+        .rb {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5em;
+
+          .rb-line {
+            &:nth-of-type(1) {
+              animation-delay: 400ms;
+            }
+            &:nth-of-type(2) {
+              animation-delay: 800ms;
+            }
+            &:nth-of-type(3) {
+              animation-delay: 1200ms;
+            }
+          }
+        }
+        .heading {
+          .title {
+            display: flex;
+            .jaw {
+              margin-left: 1em;
+            }
+            .h {
+              font-size: 4rem;
+            }
+            margin-bottom: 1em;
+          }
+          .desc {
+            font-size: 1.2rem;
+            color: var(--grey);
+          }
+        }
+      }
+
+      .tl-l {
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+        .tl-container {
+          --accent: #f75252;
+          .tlc-h {
+            position: relative;
+            .bgline {
+              position: absolute;
+              width: 100%;
+              border: 2px solid var(--accent);
+              transform: skew(-35deg);
+              height: 100%;
+              top: 10px;
+              left: 10px;
+              z-index: -1;
+            }
+            .panel {
+              width: 100%;
+              background: var(--accent);
+              color: black;
+              clip-path: polygon(0 0, 100% 0%, 100% 0, 95% 100%, 0 100%);
+              p {
+                font-size: 2rem;
+                font-weight: bolder;
+                font-family: var(--fontAlt);
+                padding-left: 30px;
+                letter-spacing: -1px;
+              }
+              position: relative;
+              .claw {
+                width: 30px;
+                height: 100%;
+                background: black;
+                position: absolute;
+                left: 0%;
+                top: 0%;
+                clip-path: polygon(0 0, 0 100%, 100% 51%);
+                transform-origin: left;
+                scale: 0.7;
+              }
+            }
+          }
+
+          .tlc-l {
+            display: flex;
+            flex-wrap: wrap;
+            --accent: #de8f57;
+
+            padding: 2em 0;
+            gap: 1em;
+            .tlcard {
+              width: 150px;
+              height: 150px;
+              background: #232323;
+              border: 5px solid var(--accent);
+              border-radius: 0 2em;
+
+              &:hover {
+                scale: 1.05;
+              }
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: inherit;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
