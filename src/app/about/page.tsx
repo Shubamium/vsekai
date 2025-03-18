@@ -11,15 +11,15 @@ export default function page({}: Props) {
           <article className="a-h">
             <div className="title">
               <div className="sub">
-                <h2 className="sh t-rb">Subtitle here</h2>
+                <h2 className="sh t-rb ">Learn more</h2>
               </div>
-              <h2 className="h">ABOUT</h2>
+              <h2 className="h t-gw">ABOUT US!</h2>
             </div>
             <div className="desc">
-              <p className="p">
+              <p className="p t-gw">
                 <b>VSEKAI </b>
                 is a US-based VTuber agency made <br />
-                <span className="red">BY VTubers,</span>
+                <span className="red">BY VTubers, </span>
                 <span className="purp">FOR VTubers</span>
                 and fans alike!
               </p>
@@ -39,11 +39,15 @@ export default function page({}: Props) {
                 <img src="/bg/bg-art.png" alt="" className="r-img" />
               </div>
             </div>
+
             <div className="r">
               <img src="/bg/bg-art.png" alt="" className="" />
             </div>
+
+            <div className="dl"></div>
+            <div className="dr"></div>
           </figure>
-          <div className="a-f">
+          <div className="a-f ">
             <p className="p">
               <b>Our mission is simple but powerful: </b>to prioritize 100%
               creative freedom for our talents, empowering them to be their true
@@ -81,9 +85,35 @@ export default function page({}: Props) {
       <section className="vm">
         <div className="confine">
           <figure>
+            <svg
+              width="46"
+              height="125"
+              viewBox="0 0 46 125"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="d-arr"
+            >
+              <path
+                d="M23 46L3.08142 11.5L42.9186 11.5L23 46Z"
+                fill="#D9D9D9"
+              />
+              <path
+                d="M23 85L3.08142 50.5L42.9186 50.5L23 85Z"
+                fill="#D9D9D9"
+              />
+              <path
+                d="M23 125L3.08142 90.5L42.9186 90.5L23 125Z"
+                fill="#D9D9D9"
+              />
+            </svg>
+            <img src="/de/claw-l.png" alt="" className="d-c" />
             <img src="/bg/bg-art.png" alt="" className="display" />
           </figure>
           <article>
+            <div className="decor-zig">
+              <div className="t"></div>
+              <div className="b"></div>
+            </div>
             <p className="p">
               Our vision extends <b>beyond just being an agency</b>—we want to
               shape the future of the VTubing industry by setting new standards
@@ -91,7 +121,7 @@ export default function page({}: Props) {
             </p>
             <p className="p">
               With every step, we aim to build a{" "}
-              <u>positive, welcoming community</u>
+              <u>positive, welcoming community </u>
               where every VTuber and their fanbase feels supported, valued, and
               ready to achieve greatness.
             </p>
@@ -101,6 +131,10 @@ export default function page({}: Props) {
       <section className="vm alt">
         <div className="confine">
           <article>
+            <div className="decor-zig">
+              <div className="t"></div>
+              <div className="b"></div>
+            </div>
             <p className="p">
               Our vision extends <b>beyond just being an agency</b>—we want to
               shape the future of the VTubing industry by setting new standards
@@ -108,18 +142,105 @@ export default function page({}: Props) {
             </p>
             <p className="p">
               With every step, we aim to build a{" "}
-              <u>positive, welcoming community</u>
+              <u>positive, welcoming community </u>
               where every VTuber and their fanbase feels supported, valued, and
               ready to achieve greatness.
             </p>
           </article>
           <figure>
+            <svg
+              width="46"
+              height="125"
+              viewBox="0 0 46 125"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="d-arr"
+            >
+              <path
+                d="M23 46L3.08142 11.5L42.9186 11.5L23 46Z"
+                fill="#D9D9D9"
+              />
+              <path
+                d="M23 85L3.08142 50.5L42.9186 50.5L23 85Z"
+                fill="#D9D9D9"
+              />
+              <path
+                d="M23 125L3.08142 90.5L42.9186 90.5L23 125Z"
+                fill="#D9D9D9"
+              />
+            </svg>
+            <img src="/de/claw-r.png" alt="" className="d-c" />
             <img src="/bg/bg-art.png" alt="" className="display" />
           </figure>
         </div>
       </section>
 
       <section id="nurture">
+        <svg
+          width="1491"
+          height="611"
+          viewBox="0 0 1491 611"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="nbg"
+        >
+          <rect
+            opacity="0.28"
+            x="32.5"
+            y="17.5"
+            width="1417"
+            height="572"
+            rx="48.5"
+            stroke="#67ADFF"
+            stroke-width="3"
+          />
+          <rect
+            opacity="0.28"
+            x="72.5"
+            y="38.5"
+            width="1417"
+            height="571"
+            rx="48.5"
+            stroke="#DE8F57"
+            stroke-width="3"
+          />
+          <rect
+            opacity="0.28"
+            x="1.5"
+            y="1.5"
+            width="1417"
+            height="571"
+            rx="48.5"
+            stroke="#F75252"
+            stroke-width="3"
+          />
+        </svg>
+
+        <svg
+          width="52"
+          height="203"
+          viewBox="0 0 52 203"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="asj l"
+        >
+          <path d="M2 70L-41.3013 17.5L45.3013 17.5L2 70Z" fill="#67ADFF" />
+          <path d="M2 135L-41.3013 82.5L45.3013 82.5L2 135Z" fill="#A584F3" />
+          <path d="M2 203L-41.3013 150.5L45.3013 150.5L2 203Z" fill="#73D4E7" />
+        </svg>
+        <svg
+          width="52"
+          height="203"
+          viewBox="0 0 52 203"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="asj"
+        >
+          <path d="M2 70L-41.3013 17.5L45.3013 17.5L2 70Z" fill="#67ADFF" />
+          <path d="M2 135L-41.3013 82.5L45.3013 82.5L2 135Z" fill="#A584F3" />
+          <path d="M2 203L-41.3013 150.5L45.3013 150.5L2 203Z" fill="#73D4E7" />
+        </svg>
+
         <div className="confine">
           <img src="/gfx/icon_dark.png" alt="" />
           <p>

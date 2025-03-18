@@ -33,9 +33,41 @@
       }
       .a-d {
         display: grid;
-        grid-template-columns: 1.5fr 1fr 0.5fr;
+        grid-template-columns: 1.1fr 1fr 0.5fr;
         gap: 2em;
         min-height: 400px;
+        position: relative;
+        @media screen and (min-width: 1024px) {
+          filter: drop-shadow(0px 0px 4px black);
+          .dl {
+            position: absolute;
+            top: 30%;
+            left: -80px;
+            width: 100px;
+            height: 100px;
+            background: #f75252;
+            clip-path: polygon(0 0, 76% 0, 100% 100%, 0 100%);
+            animation: dlr 1s infinite ease-in-out alternate-reverse;
+            @keyframes dlr {
+              from {
+                transform: translateX(30%);
+              }
+              to {
+                transform: translateX(0%);
+              }
+            }
+          }
+          .dr {
+            position: absolute;
+            top: 30%;
+            right: -40px;
+            width: 100px;
+            height: 100px;
+            background: #a584f3;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 25% 100%);
+            animation: dlr 1s infinite ease-in-out alternate-reverse;
+          }
+        }
         .l {
           border-radius: 0 0 0 5em;
 
@@ -87,6 +119,12 @@
         .p {
           font-size: 1.3rem;
           color: var(--grey);
+          text-shadow: 0px 0px 8px black;
+        }
+
+        svg {
+          animation: blink 1s infinite ease-out alternate-reverse;
+          filter: drop-shadow(0px 0px 4px white);
         }
       }
 
@@ -111,12 +149,36 @@
       figure {
         border: 2px solid var(--white);
         border-radius: 0 2em 0 2em;
-        img {
+        position: relative;
+
+        &:hover {
+          .d-arr {
+            top: 4rem;
+          }
+        }
+        .d-arr {
+          position: absolute;
+          width: 50px;
+          left: calc(100% - 25px);
+          top: 1em;
+
+          transition: all 500ms ease;
+        }
+
+        .d-c {
+          position: absolute;
+          right: 104%;
+          border-radius: 0;
+          bottom: 0%;
+          rotate: -180deg;
+        }
+        .display {
           max-width: 100%;
           border-radius: inherit;
         }
       }
       article {
+        position: relative;
         .p {
           font-size: 1.2rem;
           margin-bottom: 1em;
@@ -126,11 +188,51 @@
       }
     }
 
+    .decor-zig {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      position: absolute;
+      bottom: 100%;
+      right: -40%;
+      // justify-content: flex-end;
+      align-items: flex-end;
+      .t,
+      .b {
+        height: 80px;
+        width: 400px;
+        background: url("/bg/zig2.png");
+        animation: bgX 40s infinite linear;
+      }
+
+      .b {
+        width: 200px;
+        height: 50px;
+      }
+    }
     &.alt {
       .confine {
         transform: translateX(-2%);
+
+        figure {
+          .d-arr {
+            left: initial;
+            right: calc(100% - 25px);
+          }
+          .d-c {
+            right: initial;
+            left: 102%;
+            rotate: 0deg;
+          }
+        }
       }
       background: linear-gradient(to left, #232323, #23232300);
+      .decor-zig {
+        align-items: flex-start;
+        right: initial;
+        left: -50%;
+        bottom: 90%;
+      }
     }
   }
 
@@ -142,6 +244,37 @@
     position: relative;
     background: linear-gradient(#2d2c2c, black);
     margin: 300px 0;
+
+    .nbg {
+      position: absolute;
+      z-index: -1;
+      left: 53%;
+      transform: translateX(-50%);
+      top: -8%;
+      scale: 1.1;
+
+      rect {
+        animation: line 25s infinite linear;
+        // stroke-dashoffset: 50;
+        stroke-dasharray: 500;
+        &:nth-of-type(1) {
+          animation-delay: 2s;
+          stroke-dashoffset: 1500;
+          animation-direction: reverse;
+        }
+      }
+    }
+    .asj {
+      position: absolute;
+      left: 0%;
+      top: 30%;
+      &.l {
+        left: initial;
+        right: 0%;
+        scale: -1 1;
+      }
+    }
+
     &::before {
       content: "";
       position: absolute;
