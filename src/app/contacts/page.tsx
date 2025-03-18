@@ -1,28 +1,144 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import "./contact.scss";
 import { FaDiscord, FaTwitch, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { sendMail } from "@/db/sendmail";
+import { LuLoaderCircle } from "react-icons/lu";
 
 type Props = {};
 
 export default function page({}: Props) {
+  const [name, setName] = useState("");
+  const [mail, setMail] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const submit = async () => {
+    setLoading(true);
+    const res = await sendMail(name, mail, message);
+    setLoading(false);
+    if (res) {
+      alert(
+        "Your message has been submitted successfuly! We will try to respond as soon as possible!"
+      );
+    } else {
+      alert("Unfortunately something went wrong, please try again!");
+    }
+  };
   return (
     <main id="page_contact">
+      {loading && (
+        <div className="cload">
+          <LuLoaderCircle />
+        </div>
+      )}
+      <svg
+        width="807"
+        height="510"
+        viewBox="0 0 807 510"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="cll"
+      >
+        <rect
+          opacity="0.42"
+          x="0.5"
+          y="-0.5"
+          width="920"
+          height="308"
+          rx="154"
+          transform="matrix(1 -1.03396e-07 -7.3917e-08 -1 -408 509)"
+          stroke="#F75252"
+        />
+        <rect
+          opacity="0.42"
+          x="0.5"
+          y="-0.5"
+          width="920"
+          height="246"
+          rx="123"
+          transform="matrix(1 -1.03396e-07 -7.3917e-08 -1 -276 380)"
+          stroke="#A584F3"
+        />
+        <rect
+          opacity="0.42"
+          x="0.5"
+          y="-0.5"
+          width="920"
+          height="240"
+          rx="120"
+          transform="matrix(1 -1.03396e-07 -7.3917e-08 -1 -114 240)"
+          stroke="#73D4E7"
+        />
+      </svg>
+      <svg
+        width="746"
+        height="510"
+        viewBox="0 0 746 510"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="clr"
+      >
+        <rect
+          opacity="0.42"
+          x="0.5"
+          y="0.5"
+          width="1088"
+          height="308"
+          rx="154"
+          stroke="#F75252"
+        />
+        <rect
+          opacity="0.42"
+          x="156.5"
+          y="129.5"
+          width="1088"
+          height="246"
+          rx="123"
+          stroke="#A584F3"
+        />
+        <rect
+          opacity="0.42"
+          x="348.5"
+          y="269.5"
+          width="1088"
+          height="240"
+          rx="120"
+          stroke="#73D4E7"
+        />
+      </svg>
+
       <div className="confine">
         <section id="contact-h">
           <div className="title">
             <div className="sub">
-              <h2 className="sh t-rb">Subtitle Here</h2>
+              <h2 className="sh t-rb">Reach out</h2>
             </div>
             <h2 className="h">CONTACT US</h2>
           </div>
-          <div className="jaw">
-            <div className="j"></div>
-            <div className="j"></div>
-            <div className="j"></div>
-          </div>
+          <svg
+            width="140"
+            height="57"
+            viewBox="0 0 140 57"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="svjaw"
+          >
+            <path d="M0 0H43.5294V30.157L24.5661 57H0V0Z" fill="#D9D9D9" />
+            <path
+              d="M48.2354 0H91.7648V30.157L72.8015 57H48.2354V0Z"
+              stroke="#D9D9D9"
+              strokeWidth="2"
+            />
+            <path
+              d="M97.4706 1H139V29.8394L120.519 56H97.4706V1Z"
+              fill="#D9D9D9"
+            />
+          </svg>
         </section>
         <form id="contact-f">
+          <div className="bg-rainbow"></div>
           <div className="fg">
             <div className="ff">
               <label htmlFor="name">NAME</label>
@@ -32,6 +148,11 @@ export default function page({}: Props) {
                   name="name"
                   id="name"
                   placeholder="Your name here..."
+                  required
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
                 />
               </div>
             </div>
@@ -43,6 +164,11 @@ export default function page({}: Props) {
                   name="email"
                   id="email"
                   placeholder="your.email@mail.com"
+                  required
+                  value={mail}
+                  onChange={(e) => {
+                    setMail(e.target.value);
+                  }}
                 />
               </div>
             </div>
@@ -57,6 +183,11 @@ export default function page({}: Props) {
                     id="messages"
                     placeholder="Write your message here..."
                     className="backglow"
+                    value={message}
+                    onChange={(e) => {
+                      setMessage(e.target.value);
+                    }}
+                    required
                   />
                 </div>
               </div>
@@ -76,7 +207,14 @@ export default function page({}: Props) {
                   <FaDiscord />
                 </a>
               </div>
-              <button className="btn btn-send" type="submit">
+              <button
+                className="btn btn-send"
+                type="submit"
+                onClick={(e) => {
+                  e.preventDefault();
+                  submit();
+                }}
+              >
                 <p>SEND</p>
                 <svg
                   width="35"
@@ -85,7 +223,7 @@ export default function page({}: Props) {
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path d="M3 3L20 20" stroke="#232323" stroke-width="6" />
+                  <path d="M3 3L20 20" stroke="#232323" strokeWidth="6" />
                   <path d="M34.8372 0V34.5H2.5L34.8372 0Z" fill="#232323" />
                 </svg>
               </button>

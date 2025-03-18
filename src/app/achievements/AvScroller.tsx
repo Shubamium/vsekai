@@ -23,6 +23,41 @@ export default function AvScroller({ avl }: Props) {
     <section id="achievement">
       <div className="confine">
         <figure className="slide">
+          <svg
+            width="70"
+            height="162"
+            viewBox="0 0 70 162"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="al"
+          >
+            <path
+              d="M62.1875 123.313L62.1875 76.1813L3.86761e-05 6.52915e-05L3.70158e-05 47.1315L62.1875 123.313Z"
+              fill="#FAC03D"
+            />
+            <path
+              d="M70 161.315L70 142.917L7.81254 66.6974L7.81254 85.0952L70 161.315Z"
+              fill="#B2CC54"
+            />
+          </svg>
+          <svg
+            width="77"
+            height="190"
+            viewBox="0 0 77 190"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="ar"
+          >
+            <path
+              d="M8.40625 145.163L8.40625 89.68L76.8125 7.23232e-05L76.8125 55.4829L8.40625 145.163Z"
+              fill="#67ADFF"
+            />
+            <path
+              d="M-7.13786e-07 189.898L4.36255e-06 168.241L68.4062 78.5157L68.4062 100.173L-7.13786e-07 189.898Z"
+              fill="#A584F3"
+            />
+          </svg>
+
           <div className="display backglow">
             <img src={urlFor(ca.ai).auto("format").url()} alt="" />
           </div>

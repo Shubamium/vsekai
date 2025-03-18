@@ -1,6 +1,72 @@
 #page_contact {
   margin-top: 100px;
   margin-bottom: 300px;
+
+  .cload {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0.8;
+    backdrop-filter: blur(15px);
+    z-index: 50;
+    top: 0%;
+    left: 0%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 120px;
+      height: 120px;
+      animation: speen 1s infinite ease-in-out;
+      @keyframes speen {
+        from {
+          rotate: 0deg;
+        }
+        to {
+          rotate: 360deg;
+        }
+      }
+    }
+  }
+  .cll {
+    position: absolute;
+    left: 0%;
+    top: 20%;
+  }
+  .clr {
+    position: absolute;
+    right: 0%;
+    top: 20%;
+  }
+  @supports (animation-timeline: scroll()) {
+    .cll {
+      animation: cll;
+      animation-timeline: scroll();
+      @keyframes cll {
+        from {
+          transform: translateX(-30%);
+        }
+        to {
+          transform: translateX(20%);
+        }
+      }
+    }
+    .clr {
+      animation: clr;
+      animation-timeline: scroll();
+      @keyframes clr {
+        from {
+          transform: translateX(30%);
+        }
+        to {
+          transform: translateX(-20%);
+        }
+      }
+    }
+  }
   #contact-h {
     display: flex;
     align-items: center;
@@ -12,9 +78,24 @@
         font-size: 3rem;
       }
     }
+    .svjaw {
+      margin-left: 2em;
+    }
   }
 
   #contact-f {
+    position: relative;
+    .bg-rainbow {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: var(--rainbow);
+      scale: 1.4 1;
+      filter: blur(400px);
+      z-index: -2;
+      opacity: 0.2;
+    }
+
     input,
     textarea {
       position: relative;

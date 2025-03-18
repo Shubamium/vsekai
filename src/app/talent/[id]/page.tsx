@@ -14,6 +14,8 @@ import { fetchData, urlFor } from "@/db/sanity";
 import { redirect } from "next/navigation";
 import AudioButtoin from "./AudioButtoin";
 import { FaXTwitter } from "react-icons/fa6";
+import FanslyStat from "./FanslyStat";
+import TwitchStat from "./TwitchStat";
 
 type Props = {
   params: Promise<{
@@ -81,22 +83,22 @@ export default async function page({ params }: Props) {
               xmlns="http://www.w3.org/2000/svg"
               className="tcl"
             >
-              <path d="M2 0.5V160.5H311" stroke="#D5D5D5" stroke-width="2" />
+              <path d="M2 0.5V160.5H311" stroke="#D5D5D5" strokeWidth="2" />
               <path
                 d="M19.3428 145.167L19.3428 72.9338L102.521 145.167H19.3428Z"
                 stroke="#F75252"
-                stroke-width="7"
+                strokeWidth="7"
               />
               <path
                 d="M61.8652 52.0935L61.8652 88.6397L20.3029 52.0935L61.8652 52.0935Z"
                 fill="#FAC03D"
                 stroke="#FAC03D"
-                stroke-width="4"
+                strokeWidth="4"
               />
               <path
                 d="M71.4516 52.0376L91.3427 52.4162L71.021 74.6589L71.4516 52.0376Z"
                 stroke="#F58644"
-                stroke-width="4"
+                strokeWidth="4"
               />
             </svg>
 
@@ -108,22 +110,22 @@ export default async function page({ params }: Props) {
               xmlns="http://www.w3.org/2000/svg"
               className="tcr"
             >
-              <path d="M0 1H308V151" stroke="#D5D5D5" stroke-width="2" />
+              <path d="M0 1H308V151" stroke="#D5D5D5" strokeWidth="2" />
               <path
                 d="M287.5 23.5L287.5 111.325L186.368 23.5L287.5 23.5Z"
                 stroke="#A584F3"
-                stroke-width="7"
+                strokeWidth="7"
               />
               <path
                 d="M238 133L238 88.4218L288.697 133L238 133Z"
                 fill="#B2CC54"
                 stroke="#B2CC54"
-                stroke-width="4"
+                strokeWidth="4"
               />
               <path
                 d="M225.362 132.073L200.553 131.601L225.899 103.859L225.362 132.073Z"
                 stroke="#73D4E7"
-                stroke-width="4"
+                strokeWidth="4"
               />
             </svg>
 
@@ -140,19 +142,19 @@ export default async function page({ params }: Props) {
                   opacity="0.28"
                   d="M1 1L72.63 0.999997L0.999997 74.5401L1 1Z"
                   stroke="white"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
                 <path
                   opacity="0.28"
                   d="M31 23L102.63 23L31 96.5401L31 23Z"
                   stroke="white"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
                 <path
                   opacity="0.28"
                   d="M68 51L139.63 51L68 124.54L68 51Z"
                   stroke="white"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
               </svg>
 
@@ -323,10 +325,7 @@ export default async function page({ params }: Props) {
               <div className="stats">
                 <h2 className="h tu">FOLLOW {td.n.split(" ")[0]}!</h2>
                 <div className="sl">
-                  <div className="stat ">
-                    <FaTwitch />
-                    <p>18.3k</p>
-                  </div>
+                  {td.ct?.t && <TwitchStat id={td.ct?.t} url={td.ct.t.url} />}
                   <div className="stat">
                     <FaYoutube />
                     <p>18.3k</p>
@@ -335,10 +334,7 @@ export default async function page({ params }: Props) {
                     <FaXTwitter />
                     <p>18.3k</p>
                   </div>
-                  <div className="stat">
-                    <img src="/gfx/fanslylogo.png" alt="" />
-                    <p>18.3k</p>
-                  </div>
+                  {/* {td.ct?.f && <FanslyStat id={td.ct.f.id} url={td.ct.f.url} />} */}
                 </div>
               </div>
             </div>
