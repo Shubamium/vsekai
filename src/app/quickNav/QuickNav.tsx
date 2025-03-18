@@ -1,21 +1,50 @@
 "use client";
 import Link from "next/link";
 import "./quickNav.scss";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaHome } from "react-icons/fa";
 import { GiSparkles } from "react-icons/gi";
-import { BiShoppingBag, BiTrophy } from "react-icons/bi";
+import {
+  BiShoppingBag,
+  BiSolidShoppingBag,
+  BiSolidShoppingBagAlt,
+  BiTrophy,
+} from "react-icons/bi";
 import { PiShoppingBagFill } from "react-icons/pi";
 import { CgMail } from "react-icons/cg";
 import { BsTrophyFill } from "react-icons/bs";
+import { stagger, useAnimate } from "motion/react";
 
 type Props = {};
 
 export default function QuickNav({}: Props) {
   const [open, setOpen] = useState(false);
+  const [scope, animate] = useAnimate();
+  useEffect(() => {
+    if (open) {
+      animate(
+        ".btn-qn",
+        {
+          y: -50,
+          rotate: 0,
+        },
+        {
+          delay: stagger(0.09),
+          duration: 0.4,
+          ease: "circInOut",
+        }
+      );
+    } else {
+      animate(".btn-qn", {
+        y: 400,
+        rotate: 20,
+      });
+    }
+  }, [open]);
   return (
     <div
       id="quick-nav"
+      ref={scope}
       // onClick={() => {
       //   setOpen(false);
       // }}
@@ -70,7 +99,7 @@ export default function QuickNav({}: Props) {
             <BsTrophyFill />
           </Link>
           <Link href={"#"} className="btn btn-qn">
-            <PiShoppingBagFill />
+            <BiSolidShoppingBag />
           </Link>
           <Link href={"/contacts"} className="btn btn-qn">
             <CgMail />

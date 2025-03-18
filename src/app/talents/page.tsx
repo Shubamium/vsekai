@@ -62,7 +62,12 @@ export default async function Talents({}: Props) {
                     <div className="tlc-l">
                       {tlist.tl &&
                         tlist.tl.map((tal: any, index: number) => {
-                          if (!tal.art.hs) return <></>;
+                          if (!tal.art.hs)
+                            return (
+                              <React.Fragment
+                                key={"tllist" + index}
+                              ></React.Fragment>
+                            );
                           return (
                             <Link
                               href={"/talent/" + tal.s.current}

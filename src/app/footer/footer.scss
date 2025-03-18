@@ -1,5 +1,58 @@
 #footer {
   margin-top: 300px;
+  position: relative;
+  .decor {
+    .center-p {
+      position: absolute;
+      width: 100%;
+      background: var(--rb-c);
+      height: 20px;
+      bottom: 100%;
+      left: 0%;
+      animation: bgX 20s infinite linear;
+      // clip-path: polygon(28% 0, 73% 0, 80% 100%, 21% 100%);
+      clip-path: polygon(24% 0, 78% 0, 79% 100%, 23% 100%);
+    }
+    .fsj-l {
+      position: absolute;
+      left: 2%;
+      bottom: 95%;
+      z-index: -1;
+      path {
+        animation: fsj 1s infinite ease alternate-reverse;
+        &:nth-of-type(2) {
+          animation-delay: 0.2s;
+        }
+        &:nth-of-type(1) {
+          animation-delay: 0.4s;
+        }
+      }
+      @keyframes fsj {
+        from {
+          transform: translateY(100%);
+          scale: 1 1.5;
+        }
+        to {
+          transform: translateY(0%);
+        }
+      }
+    }
+    .fsj-r {
+      position: absolute;
+      right: 2%;
+      bottom: 95%;
+      z-index: -1;
+      path {
+        animation: fsj 1s infinite ease alternate-reverse;
+        &:nth-of-type(2) {
+          animation-delay: 0.2s;
+        }
+        &:nth-of-type(1) {
+          animation-delay: 0.4s;
+        }
+      }
+    }
+  }
   .footer-content {
     min-height: 400px;
     background: linear-gradient(#202020, #181818);
@@ -56,6 +109,17 @@
 
         padding-left: 3em;
         padding-bottom: 150px;
+        position: relative;
+        .sd-l {
+          position: absolute;
+          bottom: 10%;
+          left: -2%;
+        }
+        .sd-r {
+          position: absolute;
+          top: 10%;
+          right: -2%;
+        }
         .left {
           display: flex;
           flex-direction: column;

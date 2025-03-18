@@ -1,5 +1,13 @@
 :root {
   --rainbow: linear-gradient(90deg, #f75252 20%, #b2cc54, #67adff, #a584f3 98%);
+  --rb-c: linear-gradient(
+    90deg,
+    #f75252 0%,
+    #b2cc54,
+    #67adff,
+    #a584f3,
+    #f75252
+  );
   --white: #e5e5e5;
   --grey: #a5a5a5;
 }
@@ -181,15 +189,9 @@ body {
 .rb-line {
   height: 3px;
   width: 100%;
-  background: linear-gradient(
-    90deg,
-    #f75252 0%,
-    #b2cc54,
-    #67adff,
-    #a584f3,
-    #f75252
-  );
+  background: var(--rb-c);
   border-radius: 1em;
+  // clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
   &::before {
     content: "";
     position: absolute;
