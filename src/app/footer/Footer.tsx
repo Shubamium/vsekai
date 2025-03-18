@@ -137,7 +137,7 @@ export default async function Footer({}: Props) {
               </nav>
               <nav className="mini">
                 <div className="mini-h">
-                  <h2>Navigation</h2>
+                  <h2>Other Links</h2>
                   <hr />
                 </div>
                 <div className="list">
