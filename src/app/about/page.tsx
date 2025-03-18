@@ -44,8 +44,10 @@ export default function page({}: Props) {
               <img src="/bg/bg-art.png" alt="" className="" />
             </div>
 
-            <div className="dl"></div>
-            <div className="dr"></div>
+            <div className="sides">
+              <div className="dl"></div>
+              <div className="dr"></div>
+            </div>
           </figure>
           <div className="a-f ">
             <p className="p">
@@ -192,7 +194,7 @@ export default function page({}: Props) {
             height="572"
             rx="48.5"
             stroke="#67ADFF"
-            stroke-width="3"
+            strokeWidth="3"
           />
           <rect
             opacity="0.28"
@@ -202,7 +204,7 @@ export default function page({}: Props) {
             height="571"
             rx="48.5"
             stroke="#DE8F57"
-            stroke-width="3"
+            strokeWidth="3"
           />
           <rect
             opacity="0.28"
@@ -212,7 +214,7 @@ export default function page({}: Props) {
             height="571"
             rx="48.5"
             stroke="#F75252"
-            stroke-width="3"
+            strokeWidth="3"
           />
         </svg>
 

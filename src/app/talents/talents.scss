@@ -12,7 +12,8 @@
           display: flex;
           flex-direction: column;
           gap: 0.5em;
-
+          max-width: 50%;
+          margin-bottom: 0.5em;
           .rb-line {
             &:nth-of-type(1) {
               animation-delay: 400ms;
@@ -26,6 +27,22 @@
           }
         }
         .heading {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 1em;
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            top: -5%;
+            z-index: -1;
+            left: -10%;
+            width: 70%;
+            height: 80px;
+            background: url("/bg/zig2.png");
+            animation: bgX 50s infinite linear;
+          }
+
           .title {
             display: flex;
             .jaw {
@@ -37,8 +54,9 @@
             margin-bottom: 1em;
           }
           .desc {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: var(--grey);
+            margin-bottom: 1em;
           }
         }
       }
@@ -96,8 +114,8 @@
             padding: 2em 0;
             gap: 1em;
             .tlcard {
-              width: 150px;
-              height: 150px;
+              width: 300px;
+              height: 300px;
               background: #232323;
               border: 5px solid var(--accent);
               border-radius: 0 2em;
@@ -110,6 +128,15 @@
                 height: 100%;
                 object-fit: cover;
                 border-radius: inherit;
+              }
+
+              .info {
+                text-align: center;
+                .n {
+                  font-size: 2rem;
+                  text-transform: uppercase;
+                  font-weight: bold;
+                }
               }
             }
           }

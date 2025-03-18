@@ -38,8 +38,23 @@ export default async function Talents({}: Props) {
               </div>
 
               <p className="desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
+                Introducing VSekai's exceptional talents—individuals who define
+                and elevate the essence of our agency. These creators are at the
+                core of what makes VSekai unique, each bringing their own
+                distinct voice, style, and passion to their content.
+                <br />
+                <br />
+                Their creativity and dedication shape the future of VTubing and
+                inspire fans across the globe.
+              </p>
+              <p className="desc">
+                Explore their dedicated character pages to learn more about
+                their interests, preferences, and milestones, including
+                birthdays and personal insights. Additionally, you’ll find
+                direct links to their YouTube channels, social media profiles.
+              </p>
+              <p className="desc">
+                Get to know the talents who make VSekai what it is today!
               </p>
             </div>
           </article>
@@ -78,9 +93,14 @@ export default async function Talents({}: Props) {
                                 src={urlFor(tal.art.hs).auto("format").url()}
                                 alt=""
                               />
+                              <div className="info">
+                                <p className="n">{tal.n}</p>
+                                <p className="jp">{tal.nj}</p>
+                              </div>
                             </Link>
                           );
                         })}
+
                       {/* <Link href={"/talent/slug"} className="btn tlcard">
                         <img src="/gfx/headshot.png" alt="" />
                       </Link> */}
@@ -88,6 +108,7 @@ export default async function Talents({}: Props) {
                   </div>
                 );
               })}
+
             {/* <div className="tl-container">
               <div className="tlc-h">
                 <div className="panel">

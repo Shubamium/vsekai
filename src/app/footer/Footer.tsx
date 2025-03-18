@@ -23,7 +23,7 @@ export default function Footer({}: Props) {
           <path
             d="M224 132.017V178H159L159 85.9348L224 132.017Z"
             stroke="#FFE867"
-            stroke-width="2"
+            strokeWidth="2"
           />
         </svg>
         <svg
@@ -37,7 +37,7 @@ export default function Footer({}: Props) {
           <path
             d="M167.224 90.0185L167.224 177.5H234.5L234.5 4.3392L167.224 90.0185Z"
             stroke="#A584F3"
-            stroke-width="3"
+            strokeWidth="3"
           />
           <path
             d="M153.138 30L82.8623 104.5L82.8623 179H153.138L153.138 30Z"
