@@ -36,6 +36,26 @@ export default async function Talents({}: Props) {
                   <div className="j"></div>
                 </div>
               </div>
+              <svg
+                width="386"
+                height="152"
+                viewBox="0 0 386 152"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M142.176 151.5L1.15112 0.5H68.3147L209.34 151.5H142.176Z"
+                  stroke="#F75252"
+                />
+                <path
+                  d="M232.645 151.5L91.6199 0.5H158.783L299.808 151.5H232.645Z"
+                  stroke="#67ADFF"
+                />
+                <path
+                  d="M317.685 151.5L176.661 0.5H243.824L384.849 151.5H317.685Z"
+                  stroke="#A584F3"
+                />
+              </svg>
 
               <p className="desc">
                 Introducing VSekai's exceptional talents—individuals who define
@@ -86,8 +106,13 @@ export default async function Talents({}: Props) {
                           return (
                             <Link
                               href={"/talent/" + tal.s.current}
-                              key={tal.id + index}
+                              key={tal.id + " " + index}
                               className="btn tlcard"
+                              style={
+                                {
+                                  "--accent": tal.ca,
+                                } as CSSProperties
+                              }
                             >
                               <img
                                 src={urlFor(tal.art.hs).auto("format").url()}

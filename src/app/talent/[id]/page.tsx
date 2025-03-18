@@ -1,6 +1,6 @@
 import Link from "next/link";
 import "./talent.scss";
-import React from "react";
+import React, { CSSProperties } from "react";
 import {
   FaArrowRight,
   FaChevronLeft,
@@ -28,7 +28,7 @@ export default async function page({ params }: Props) {
   const td = await fetchData<any>(`
 		*[_type == 'talent' && s.current == '${id}']{
 			...,
-			vl ->,
+			'vl':vl.asset -> url,
 		
 		}[0]
 	`);
@@ -39,7 +39,14 @@ export default async function page({ params }: Props) {
 
   console.log(td);
   return (
-    <main id="page_talent">
+    <main
+      id="page_talent"
+      style={
+        {
+          "--accent": td.ca,
+        } as CSSProperties
+      }
+    >
       <section id="talent">
         <div className="confine">
           <div className="top">
@@ -51,8 +58,131 @@ export default async function page({ params }: Props) {
         </div>
 
         <div className="talent-part">
+          <div className="bg-text">
+            <p>
+              VSEKAI VSEKAI VSEKAI VSEKAI VSEKAI VSEKAI VSEKAI VSEKAI VSEKAI
+              VSEKAI VSEKAI
+            </p>
+            <p>
+              VSEKAI VSEKAI VSEKAI VSEKAI VSEKAI VSEKAI VSEKAI VSEKAI VSEKAI
+              VSEKAI VSEKAI
+            </p>
+            <p>
+              VSEKAI VSEKAI VSEKAI VSEKAI VSEKAI VSEKAI VSEKAI VSEKAI VSEKAI
+              VSEKAI VSEKAI
+            </p>
+          </div>
           <div className="confine">
+            <svg
+              width="311"
+              height="162"
+              viewBox="0 0 311 162"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="tcl"
+            >
+              <path d="M2 0.5V160.5H311" stroke="#D5D5D5" stroke-width="2" />
+              <path
+                d="M19.3428 145.167L19.3428 72.9338L102.521 145.167H19.3428Z"
+                stroke="#F75252"
+                stroke-width="7"
+              />
+              <path
+                d="M61.8652 52.0935L61.8652 88.6397L20.3029 52.0935L61.8652 52.0935Z"
+                fill="#FAC03D"
+                stroke="#FAC03D"
+                stroke-width="4"
+              />
+              <path
+                d="M71.4516 52.0376L91.3427 52.4162L71.021 74.6589L71.4516 52.0376Z"
+                stroke="#F58644"
+                stroke-width="4"
+              />
+            </svg>
+
+            <svg
+              width="309"
+              height="151"
+              viewBox="0 0 309 151"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="tcr"
+            >
+              <path d="M0 1H308V151" stroke="#D5D5D5" stroke-width="2" />
+              <path
+                d="M287.5 23.5L287.5 111.325L186.368 23.5L287.5 23.5Z"
+                stroke="#A584F3"
+                stroke-width="7"
+              />
+              <path
+                d="M238 133L238 88.4218L288.697 133L238 133Z"
+                fill="#B2CC54"
+                stroke="#B2CC54"
+                stroke-width="4"
+              />
+              <path
+                d="M225.362 132.073L200.553 131.601L225.899 103.859L225.362 132.073Z"
+                stroke="#73D4E7"
+                stroke-width="4"
+              />
+            </svg>
+
             <div className="art">
+              <svg
+                width="142"
+                height="127"
+                viewBox="0 0 142 127"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="tsa"
+              >
+                <path
+                  opacity="0.28"
+                  d="M1 1L72.63 0.999997L0.999997 74.5401L1 1Z"
+                  stroke="white"
+                  stroke-width="2"
+                />
+                <path
+                  opacity="0.28"
+                  d="M31 23L102.63 23L31 96.5401L31 23Z"
+                  stroke="white"
+                  stroke-width="2"
+                />
+                <path
+                  opacity="0.28"
+                  d="M68 51L139.63 51L68 124.54L68 51Z"
+                  stroke="white"
+                  stroke-width="2"
+                />
+              </svg>
+
+              <svg
+                width="241"
+                height="314"
+                viewBox="0 0 241 314"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="d-dia"
+              >
+                <path
+                  d="M54.6904 64L151.796 104.741L177.69 200L80 157L54.6904 64Z"
+                  fill="#F38845"
+                />
+                <path
+                  d="M58 68L149.579 106.345L174 196L81.8692 155.529L58 68Z"
+                  className="center"
+                  fill="black"
+                />
+                <path
+                  d="M0 195.431L92.5 186L174.521 251.71L82.8096 262.354L0 195.431Z"
+                  fill="#F38845"
+                />
+                <path
+                  d="M160.522 0L205.5 67L189.318 134.018L148.149 78.6237L160.522 0Z"
+                  fill="#F38845"
+                />
+              </svg>
+
               <img
                 src={urlFor(td.art.hb).auto("format").url()}
                 alt=""
@@ -64,6 +194,7 @@ export default async function page({ params }: Props) {
               <AudioButtoin src={td.vl} />
               <div className="t">
                 <h2 className="name tu">{td.n}</h2>
+                <h2 className="name tu ns ">{td.nj}</h2>
                 <div className="rb">
                   <div className="rb-line"></div>
                   <div className="rb-line"></div>
@@ -190,7 +321,7 @@ export default async function page({ params }: Props) {
               </div>
 
               <div className="stats">
-                <h2 className="h">FOLLOW TAIGA!</h2>
+                <h2 className="h tu">FOLLOW {td.n.split(" ")[0]}!</h2>
                 <div className="sl">
                   <div className="stat ">
                     <FaTwitch />
@@ -215,8 +346,52 @@ export default async function page({ params }: Props) {
         </div>
       </section>
       <div id="talent-detail">
+        <svg
+          width="386"
+          height="152"
+          viewBox="0 0 386 152"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="sn"
+        >
+          <path
+            d="M142.176 151.5L1.15112 0.5H68.3147L209.34 151.5H142.176Z"
+            stroke="#F75252"
+          />
+          <path
+            d="M232.645 151.5L91.6199 0.5H158.783L299.808 151.5H232.645Z"
+            stroke="#67ADFF"
+          />
+          <path
+            d="M317.685 151.5L176.661 0.5H243.824L384.849 151.5H317.685Z"
+            stroke="#A584F3"
+          />
+        </svg>
+
+        <svg
+          width="386"
+          height="152"
+          viewBox="0 0 386 152"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="sn r"
+        >
+          <path
+            d="M142.176 151.5L1.15112 0.5H68.3147L209.34 151.5H142.176Z"
+            stroke="#F75252"
+          />
+          <path
+            d="M232.645 151.5L91.6199 0.5H158.783L299.808 151.5H232.645Z"
+            stroke="#67ADFF"
+          />
+          <path
+            d="M317.685 151.5L176.661 0.5H243.824L384.849 151.5H317.685Z"
+            stroke="#A584F3"
+          />
+        </svg>
+
         <div className="td-h confine">
-          <h2 className="h">MORE FROM TAIGA</h2>
+          <h2 className="h t-gw">More from {td.n.split(" ")[0]}</h2>
           <svg
             width="107"
             height="63"
@@ -321,7 +496,7 @@ export default async function page({ params }: Props) {
 
         <div className="td-cl confine">
           <div className="l">
-            <p className="p">Looking to collaborate with Taiga?</p>
+            <p className="p t-gw">Looking to collaborate with Taiga?</p>
           </div>
           <div className="r">
             <Link href={"/contacts"} className="btn btn-rb backglow">

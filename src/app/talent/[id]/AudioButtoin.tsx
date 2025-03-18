@@ -1,24 +1,32 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { CgPlayButton } from "react-icons/cg";
-import { FaPause } from "react-icons/fa";
+import { FaPause, FaPlay } from "react-icons/fa";
 
 type Props = {};
 
 export default function AudioButtoin({ src }: any) {
-  const [play, setPlay] = useState();
+  const [play, setPlay] = useState(true);
   const audioRef = useRef<HTMLAudioElement>(null);
   if (!src) return <></>;
   return (
     <button
       className={`btn btn-play ${play ? "play" : "paused"}`}
       onClick={() => {
-        setPlay(play);
+        if (audioRef.current) {
+          if (!play) {
+            audioRef.current.pause();
+          } else {
+            audioRef.current.currentTime = 0;
+            audioRef.current.play();
+          }
+        }
+        setPlay(!play);
       }}
     >
-      <audio src={src} className="ad"></audio>
+      <audio src={src} ref={audioRef} className="ad"></audio>
       <div className="pl">
-        <CgPlayButton />
+        <FaPlay />
       </div>
       <div className="pa">
         <FaPause />
