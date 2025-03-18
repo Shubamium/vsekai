@@ -46,11 +46,62 @@ export default function Talent({ tl }: any) {
   }, [bounds]);
   return (
     <section id="home-talent" ref={ar}>
+      <svg
+        width="386"
+        height="152"
+        viewBox="0 0 386 152"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="top-neon"
+      >
+        <path
+          d="M142.176 151.5L1.15112 0.5H68.3147L209.34 151.5H142.176Z"
+          stroke="#F75252"
+        />
+        <path
+          d="M232.645 151.5L91.6199 0.5H158.783L299.808 151.5H232.645Z"
+          stroke="#67ADFF"
+        />
+        <path
+          d="M317.685 151.5L176.661 0.5H243.824L384.849 151.5H317.685Z"
+          stroke="#A584F3"
+        />
+      </svg>
+
       <div className="t-h">
         <div className="sh-contianer">
           <h2 className="sh t-rb">Meet VSekai’s</h2>
         </div>
         <h2 className="h">TALENTS!</h2>
+        <svg
+          width="301"
+          height="137"
+          viewBox="0 0 301 137"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="ht-l"
+        >
+          <path
+            d="M2.5 2.5H297.139L237.953 134.5H2.5V2.5Z"
+            stroke="#F75252"
+            strokeWidth="2"
+          />
+        </svg>
+
+        <svg
+          width="301"
+          height="137"
+          viewBox="0 0 301 137"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="ht-r"
+        >
+          <path
+            d="M298.5 134.5L3.86078 134.5L63.0474 2.50002L298.5 2.5L298.5 134.5Z"
+            stroke="#F75252"
+            strokeWidth="2"
+          />
+        </svg>
       </div>
       <div className="bg-text">
         <p>

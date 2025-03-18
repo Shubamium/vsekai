@@ -12,13 +12,6 @@ export default async function page({}: Props) {
 		}
 	`);
 
-  const next = () => {
-    setA(Math.min(a + 1, avl.length - 1));
-  };
-
-  const prev = () => {
-    setA(Math.max(a - 1, 0));
-  };
   return (
     <main id="page_achievements">
       <AvScroller avl={av} />
