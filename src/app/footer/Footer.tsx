@@ -3,10 +3,16 @@ import "./footer.scss";
 import React from "react";
 import { FaDiscord, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { fetchData } from "@/db/sanity";
 
 type Props = {};
 
-export default function Footer({}: Props) {
+export default async function Footer({}: Props) {
+  const hd = await fetchData<any>(`
+				*[_type == 'general' && preset == 'main']{
+					mch,
+			}[0]
+			`);
   return (
     <footer id="footer">
       <div className="decor">
@@ -135,7 +141,7 @@ export default function Footer({}: Props) {
                   <hr />
                 </div>
                 <div className="list">
-                  <a href={"#"} className="btn btn-mini">
+                  <a href={hd.mch} target="_blank" className="btn btn-mini">
                     {" "}
                     MERCHANDISE
                   </a>
@@ -148,13 +154,19 @@ export default function Footer({}: Props) {
             </div>
             <div className="right">
               <div className="socials">
-                <a href="#" className="btn btn-icon y">
+                <a
+                  href="https://www.youtube.com/@VSekaiEN"
+                  className="btn btn-icon y"
+                >
                   <FaYoutube />
                 </a>
-                <a href="#" className="btn btn-icon x">
+                <a href="https://x.com/VSekaiEN" className="btn btn-icon x">
                   <FaXTwitter />
                 </a>
-                <a href="#" className="btn btn-icon d">
+                <a
+                  href="https://discord.gg/XsunFzGj83"
+                  className="btn btn-icon d"
+                >
                   <FaDiscord />
                 </a>
               </div>

@@ -5,6 +5,7 @@ import Header from "./header/Header";
 import { CSSProperties } from "react";
 import Footer from "./footer/Footer";
 import QuickNav from "./quickNav/QuickNav";
+import LoadingScreen from "./loading/LoadingScreen";
 
 const rj = Rajdhani({
   variable: "--fontAlt",
@@ -21,6 +22,7 @@ const raleway = Raleway({
 export const metadata: Metadata = {
   title: "Vsekai",
   description: "Vsekai",
+  icons: "/favicon.ico",
 };
 
 export default function RootLayout({
@@ -34,6 +36,7 @@ export default function RootLayout({
         className={`body ${rj.className} ${raleway.className}`}
         style={{ "--fontAlt": rj.style.fontFamily } as CSSProperties}
       >
+        <LoadingScreen />
         <Header />
         {children}
         <Footer />

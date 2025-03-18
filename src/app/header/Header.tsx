@@ -1,11 +1,19 @@
 import Link from "next/link";
 import React from "react";
 import "./header.scss";
+import { fetchData } from "@/db/sanity";
+import SetMerchLink from "../SetMerchLink";
 type Props = {};
 
-export default function Header({}: Props) {
+export default async function Header({}: Props) {
+  const hd = await fetchData<any>(`
+			*[_type == 'general' && preset == 'main']{
+				mch,
+		}[0]
+		`);
   return (
     <header id="header">
+      <SetMerchLink l={hd.mch} />
       <div className="vague-cl"></div>
       <div className="vague-cr"></div>
       <svg
@@ -127,7 +135,7 @@ export default function Header({}: Props) {
           >
             ACHIEVEMENTS
           </Link>
-          <Link href={"/"} className={`btn btn-nav ${true ? "active" : ""}`}>
+          <Link href={hd.mch} className={`btn btn-nav ${true ? "active" : ""}`}>
             MERCHANDISE
           </Link>
           <Link

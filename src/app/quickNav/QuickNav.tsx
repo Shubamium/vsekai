@@ -20,6 +20,8 @@ type Props = {};
 export default function QuickNav({}: Props) {
   const [open, setOpen] = useState(false);
   const [scope, animate] = useAnimate();
+
+  const mch = localStorage.getItem("m");
   useEffect(() => {
     if (open) {
       animate(
@@ -98,7 +100,7 @@ export default function QuickNav({}: Props) {
           <Link href={"/achievements"} className="btn btn-qn">
             <BsTrophyFill />
           </Link>
-          <Link href={"#"} className="btn btn-qn">
+          <Link href={mch ?? ""} target="_blank" className="btn btn-qn">
             <BiSolidShoppingBag />
           </Link>
           <Link href={"/contacts"} className="btn btn-qn">

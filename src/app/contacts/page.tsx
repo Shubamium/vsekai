@@ -194,16 +194,29 @@ export default function page({}: Props) {
             </div>
             <div className="r">
               <div className="socials">
-                <a href="#" className="ico btn btn-icon y">
+                <a
+                  href="https://www.youtube.com/@VSekaiEN"
+                  target="_blank"
+                  className="ico btn btn-icon y"
+                >
                   <FaYoutube />
                 </a>
-                <a href="#" className="ico btn btn-icon x">
+                <a
+                  href="https://x.com/VSekaiEN"
+                  target="_blank"
+                  className="ico btn btn-icon x"
+                >
                   <FaXTwitter />
                 </a>
                 <div className="ico logo">
                   <img src="/gfx/icon_white.png" alt="" />
                 </div>
-                <a href="#" className="ico btn btn-icon d">
+                <a
+                  href="https://discord.gg/XsunFzGj83 
+"
+                  target="_blank"
+                  className="ico btn btn-icon d"
+                >
                   <FaDiscord />
                 </a>
               </div>

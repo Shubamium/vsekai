@@ -1,0 +1,54 @@
+#loading-screen {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+  background: linear-gradient(to bottom, #1d1d1d, black);
+  z-index: 1000;
+
+  .bg-zig {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: url("/bg/zig2.png");
+    animation: bgX 25s infinite linear;
+    opacity: 0.1;
+  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3em;
+
+  .lines {
+    width: 100%;
+    // rotate: -5deg;
+    // scale: 1.2 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+  .rb-line {
+    height: 10px;
+  }
+  .mi {
+    width: 350px;
+  }
+  .p {
+    font-size: 3rem;
+    text-transform: uppercase;
+    animation: blink 0.5s infinite linear alternate-reverse;
+  }
+  transition: all 1500ms ease;
+
+  &.d {
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+  }
+}
+
+html:has(#loading-screen) {
+  overflow: hidden;
+}
