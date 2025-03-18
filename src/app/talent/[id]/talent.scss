@@ -163,6 +163,8 @@
                 z-index: -2;
                 // transform: translateX(90%);
                 opacity: 0.05;
+                white-space: nowrap;
+                text-wrap: nowrap;
               }
             }
             .rb {

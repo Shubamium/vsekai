@@ -1,6 +1,6 @@
 import Link from "next/link";
 import "./talent.scss";
-import React, { CSSProperties } from "react";
+import React, { CSSProperties, Suspense } from "react";
 import {
   FaArrowRight,
   FaChevronLeft,
@@ -15,7 +15,8 @@ import { redirect } from "next/navigation";
 import AudioButtoin from "./AudioButtoin";
 import { FaXTwitter } from "react-icons/fa6";
 import FanslyStat from "./FanslyStat";
-import TwitchStat from "./TwitchStat";
+import TwitterStat from "./TwitchStat";
+import { LuLoaderCircle } from "react-icons/lu";
 
 type Props = {
   params: Promise<{
@@ -325,16 +326,46 @@ export default async function page({ params }: Props) {
               <div className="stats">
                 <h2 className="h tu">FOLLOW {td.n.split(" ")[0]}!</h2>
                 <div className="sl">
-                  {td.ct?.t && <TwitchStat id={td.ct?.t} url={td.ct.t.url} />}
-                  <div className="stat">
-                    <FaYoutube />
-                    <p>18.3k</p>
-                  </div>
-                  <div className="stat">
+                  <Suspense
+                    fallback={
+                      <p
+                        className="p"
+                        style={{
+                          animation: "blink 1s infinite linear alternate",
+                        }}
+                      >
+                        <LuLoaderCircle
+                          style={{ animation: "speen 1s infinite  " }}
+                        />{" "}
+                        Loading social data...
+                      </p>
+                    }
+                  >
+                    {td.ct?.t && (
+                      <Link href={td.ct?.yt.url} className="stat">
+                        <FaYoutube />
+                        <p>{td.ct?.yt.id}</p>
+                      </Link>
+                    )}
+                    {td.ct?.t && (
+                      <Link href={td.ct?.t.url} className="stat">
+                        <FaTwitch />
+                        <p>{td.ct?.t.id}</p>
+                      </Link>
+                    )}
+                    {td.ct?.x && (
+                      <TwitterStat id={td.ct?.x.id} url={td.ct?.x.url} />
+                    )}
+                    {/* <p>{td.ct?.x.id}</p> */}
+
+                    {/* <div className="stat">
                     <FaXTwitter />
                     <p>18.3k</p>
-                  </div>
-                  {/* {td.ct?.f && <FanslyStat id={td.ct.f.id} url={td.ct.f.url} />} */}
+                  </div> */}
+                    {td.ct?.f && (
+                      <FanslyStat id={td.ct.f.id} url={td.ct.f.url} />
+                    )}
+                  </Suspense>
                 </div>
               </div>
             </div>

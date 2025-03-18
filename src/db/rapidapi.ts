@@ -18,19 +18,19 @@ export async function getFansly(id: string) {
   return null;
   // if(json.)
 }
-export async function getTwitch(id: string) {
-  const url = `https://twitch-api8.p.rapidapi.com/get_streamer_info?channel=${id}`;
+export async function getX(id: string) {
+  const url = `https://twitter-api45.p.rapidapi.com/followers.php?screenname=${id}`;
   const data = await fetch(url, {
     headers: {
       "x-rapidapi-key": apiKey,
-      "x-rapidapi-host": "twitch-api8.p.rapidapi.com",
+      "x-rapidapi-host": "twitter-api45.p.rapidapi.com",
     } as any,
   });
   const json = await data.json();
 
   console.log(json);
-  if (json && json.followCount) {
-    return json.followCount;
+  if (json && json.followers_count) {
+    return json.followers_count;
   }
   return null;
   // if(json.)

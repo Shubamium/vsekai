@@ -13,7 +13,7 @@ export async function sendMail(user: string, mail: string, message: string) {
   // Email details
   const mailOptions = {
     from: "vicnet.video@gmail.com",
-    to: "liusvinv@gmail.com",
+    to: process.env.SMTP_TARGET,
     subject: `"[Form Submission] ${user} sent from VSEKAI website`,
     text: `Hello, ${user} has submitted a message through the website contact form. \n \n Email: ${mail} \n Message: ${message} `,
   };

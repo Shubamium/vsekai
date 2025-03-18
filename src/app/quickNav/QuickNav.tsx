@@ -21,7 +21,7 @@ export default function QuickNav({}: Props) {
   const [open, setOpen] = useState(false);
   const [scope, animate] = useAnimate();
 
-  const mch = localStorage.getItem("m");
+  const [mch, setMCH] = useState("");
   useEffect(() => {
     if (open) {
       animate(
@@ -43,6 +43,11 @@ export default function QuickNav({}: Props) {
       });
     }
   }, [open]);
+
+  useEffect(() => {
+    const mchs = localStorage.getItem("m") ?? "#";
+    setMCH(mchs);
+  }, []);
   return (
     <div
       id="quick-nav"

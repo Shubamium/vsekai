@@ -1,12 +1,13 @@
 import Link from "next/link";
 import React from "react";
-import { getTwitch } from "@/db/rapidapi";
+import { getX } from "@/db/rapidapi";
 import { FaTwitch } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 type Props = {};
 
-export default async function TwitchStat({ id, url }: any) {
-  const fd = await getTwitch(id);
-  console.log(fd, "geeting twitch data");
+export default async function TwitterStat({ id, url }: any) {
+  const fd = await getX(id);
+  // console.log(fd, "geeting x data");
   if (!fd) {
     return <></>;
   }
@@ -16,7 +17,7 @@ export default async function TwitchStat({ id, url }: any) {
   return (
     <Link href={url} target="_blank" className="stat">
       {/* <img src="/gfx/fanslylogo.png" alt="" /> */}
-      <FaTwitch />
+      <FaXTwitter />
       <p>{formatter.format(fd)}</p>
     </Link>
   );
