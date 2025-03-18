@@ -2,6 +2,28 @@
   padding: 1.5em;
   position: relative;
 
+  .vague-cl {
+    position: absolute;
+    left: 0%;
+    width: 10vw;
+    height: 10vw;
+    background: rgb(23, 23, 23);
+    top: 0%;
+    border-radius: 0 0 100% 0;
+    z-index: -15;
+    opacity: 0.8;
+  }
+  .vague-cr {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    width: 10vw;
+    height: 10vw;
+    background: rgb(23, 23, 23);
+    border-radius: 0 0 0 100%;
+    z-index: -15;
+    opacity: 0.8;
+  }
   .decor_tr {
     position: absolute;
     left: 0%;

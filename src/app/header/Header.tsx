@@ -6,6 +6,8 @@ type Props = {};
 export default function Header({}: Props) {
   return (
     <header id="header">
+      <div className="vague-cl"></div>
+      <div className="vague-cr"></div>
       <svg
         width="129"
         height="127"

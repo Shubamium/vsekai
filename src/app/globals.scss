@@ -74,6 +74,13 @@ button {
   }
 }
 
+.btn-disable {
+  // pointer-events: none;
+  // user-select: none;
+  cursor: not-allowed;
+  opacity: 0.4;
+  filter: brightness(70%);
+}
 .btn-ol {
   color: white;
   font-family: var(--fontAlt);
@@ -85,15 +92,16 @@ button {
   border-radius: 1em;
   padding: 0.1em 2em;
   margin: 1em 0;
-  &:hover {
-    background: white;
-    color: black;
-  }
+  // Uncomment this whenever it's open
+  // &:hover {
+  //   background: white;
+  //   color: black;
+  // }
 
-  &:has(svg) {
-    gap: 2em;
-    padding-inline: 1em;
-  }
+  // &:has(svg) {
+  //   gap: 2em;
+  //   padding-inline: 1em;
+  // }
   // z-index: 1;
 }
 
@@ -264,5 +272,81 @@ body {
     outline: 2px solid white;
     clip-path: polygon(0 0, 100% 0, 100% 44%, 56% 100%, 0 100%, 0% 50%);
     // border: 1px solid white;
+  }
+}
+
+.svjaw {
+  path {
+    animation: svjaw 2s infinite ease-in-out reverse;
+    &:nth-of-type(3) {
+      animation-delay: 0.4s;
+    }
+    &:nth-of-type(2) {
+      animation-delay: 0.2s;
+    }
+  }
+  @keyframes svjaw {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+      rotate: 20deg;
+      // scale: 0.7;
+    }
+    20% {
+      opacity: 1;
+      rotate: 0deg;
+      transform: translateY(0%);
+      // scale: 1;
+    }
+    80% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    to {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+}
+
+.bg-text {
+  display: flex;
+  flex-direction: column;
+  height: 0px;
+  z-index: -51;
+  position: absolute;
+  opacity: 0.08;
+  top: 15%;
+  p {
+    font-size: 10rem;
+    white-space: nowrap;
+
+    line-height: 100%;
+    font-weight: bolder;
+    color: transparent;
+    -webkit-text-stroke: 2px white;
+    text-stroke: 2px white;
+    letter-spacing: -5px;
+    position: relative;
+    animation: rt 80s infinite linear alternate;
+    scale: 1 1.1;
+    @keyframes rt {
+      from {
+        left: 0%;
+      }
+      to {
+        left: -70%;
+      }
+    }
+
+    &:nth-of-type(2) {
+      // animation-delay: 10s;
+      animation-direction: reverse;
+    }
+    &:nth-of-type(3) {
+      // animation-delay: 10s;
+      animation-duration: 110s;
+      // animation-direction: normal;
+    }
   }
 }
