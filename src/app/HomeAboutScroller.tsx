@@ -40,7 +40,7 @@ This is your chance to be part of something one of a kind!
   };
   return (
     <div className="text-container">
-      <AnimatePresence mode="wait">
+      {/* <AnimatePresence mode="wait">
         <motion.p
           className="p"
           key={"page" + page}
@@ -62,7 +62,12 @@ This is your chance to be part of something one of a kind!
         >
           {text[page]}
         </motion.p>
-      </AnimatePresence>
+      </AnimatePresence> */}
+
+      {text.map((t) => {
+        return <p className="p">{t}</p>;
+      })}
+
       {/* <p className="p">
         VSekai was built AND founded by VTubers, for VTubers and VTuber fans
         alike! At VSekai, we’re rewriting the rules of the VTuber world by
@@ -104,7 +109,7 @@ This is your chance to be part of something one of a kind!
         part of something one of a kind!
       </p> */}
 
-      <div className="controls">
+      {/* <div className="controls">
         <button className="btn btn-ol" onClick={prev}>
           <FaChevronLeft />
         </button>
@@ -112,7 +117,7 @@ This is your chance to be part of something one of a kind!
         <button className="btn btn-ol" onClick={next}>
           <FaChevronRight />
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }
