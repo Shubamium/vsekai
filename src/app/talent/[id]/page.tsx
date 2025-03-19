@@ -523,7 +523,9 @@ export default async function page({ params }: Props) {
 
         <div className="td-cl confine">
           <div className="l">
-            <p className="p t-gw">Looking to collaborate with Taiga?</p>
+            <p className="p t-gw">
+              Looking to collaborate with {td.n.split(" ")[0]}?
+            </p>
           </div>
           <div className="r">
             <Link href={"/contacts"} className="btn btn-rb backglow">

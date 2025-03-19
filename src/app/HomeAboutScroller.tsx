@@ -65,7 +65,11 @@ This is your chance to be part of something one of a kind!
       </AnimatePresence> */}
 
       {text.map((t) => {
-        return <p className="p">{t}</p>;
+        return (
+          <p className="p" key={t}>
+            {t}
+          </p>
+        );
       })}
 
       {/* <p className="p">
