@@ -1,3 +1,4 @@
+@import "mixins";
 #header {
   padding: 1.5em;
   position: relative;
@@ -31,6 +32,16 @@
     z-index: -15;
     width: 100px;
     height: 100px;
+
+    @include mq(768) {
+      width: 80px;
+      height: 80px;
+    }
+
+    @include mq(550) {
+      width: 40px;
+      height: 40px;
+    }
     &.r {
       left: initial;
       right: 0%;
@@ -43,6 +54,16 @@
     align-items: center;
     position: relative;
     gap: 2em;
+  }
+  @include mq(1024, min) {
+    .btn-menu {
+      display: none;
+    }
+  }
+  .btn-menu {
+    background: white;
+    color: black;
+    box-shadow: 0px 0px 14px black;
   }
   .nav {
     background: black;
@@ -57,6 +78,38 @@
     width: 100%;
     flex-grow: 1;
 
+    @include mq(1024) {
+      &.main {
+        display: none;
+      }
+    }
+
+    &.nav-full {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 20vh;
+      left: 0%;
+      width: 100%;
+      z-index: 100;
+      display: none;
+      &::before {
+        display: none;
+        z-index: -1;
+      }
+      &::after {
+        opacity: 0.2;
+      }
+      background: black;
+      border-radius: 0;
+      border: 4px solid white;
+      border-image: var(--rainbow) 20%;
+      padding: 2em;
+
+      @include mq(1024, min) {
+        display: none;
+      }
+    }
     .decor-slanted {
       position: absolute;
       bottom: -50%;
@@ -119,6 +172,16 @@
       }
     }
   }
+
+  @include mq(1024) {
+    // position: fixed;
+    // top: 0%;
+    // left: 0%;
+    // width: 100%;
+    // z-index: 1000;
+    // padding: 0;
+  }
+
   .logo-container {
     // max-height: 50px;
     .logo {
@@ -129,6 +192,11 @@
       // padding: 0em 0;
     }
     position: relative;
+    @include mq(1024) {
+      width: 250px;
+      min-height: 15vh;
+      margin: 0 auto;
+    }
     .decor_neon {
       position: absolute;
       filter: drop-shadow(0px 0px 2px rgba(255, 0, 0, 0.629));

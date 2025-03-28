@@ -36,7 +36,7 @@ export default function RootLayout({
         className={`body ${rj.className} ${raleway.className}`}
         style={{ "--fontAlt": rj.style.fontFamily } as CSSProperties}
       >
-        <LoadingScreen />
+        {/* <LoadingScreen /> */}
         <Header />
         {children}
         <Footer />

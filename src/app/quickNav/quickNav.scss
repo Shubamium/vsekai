@@ -1,3 +1,4 @@
+@import "mixins";
 #quick-nav {
   position: fixed;
   bottom: 0%;
@@ -21,6 +22,11 @@
     align-items: center;
     transform: translateY(15%);
     position: absolute;
+    @include mq(768) {
+      scale: 0.8;
+      transform-origin: bottom;
+    }
+
     .center {
       display: flex;
       padding: 0.5em 3em;
@@ -32,6 +38,10 @@
       backdrop-filter: blur(4px);
       // width: 100%;
       gap: 1em;
+      @include mq(550) {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
     }
     z-index: 10;
     position: relative;
@@ -43,11 +53,17 @@
       transform: translateY(-35%);
       clip-path: polygon(100% 0, 100% 79%, 82% 100%, 0 99%, 0 0);
       padding: 0.5em;
+      @include mq(1024) {
+        width: 120px;
+        height: 120px;
+      }
+
       &:hover {
         transform: translateY(-40%);
         scale: 1.1;
         transform-origin: top;
       }
+
       svg,
       img {
         width: 100%;
@@ -98,11 +114,17 @@
       transform: translateY(-150px);
       user-select: initial;
       pointer-events: initial;
+      @include mq(550) {
+        transform: translateY(-120%);
+      }
     }
   }
   &.closed {
     #qn-c {
       transform: translateY(40px);
+      @include mq(550) {
+        transform: translateY(0%);
+      }
       user-select: none;
       pointer-events: none;
     }

@@ -3,6 +3,7 @@ import React from "react";
 import "./header.scss";
 import { fetchData } from "@/db/sanity";
 import SetMerchLink from "../SetMerchLink";
+import { GiHamburgerMenu } from "react-icons/gi";
 type Props = {};
 
 export default async function Header({}: Props) {
@@ -37,7 +38,7 @@ export default async function Header({}: Props) {
       </svg>
 
       <div className="confine">
-        <nav className="nav nav-left backglow">
+        <nav className="nav nav-left main  backglow">
           <img src="/de/nav-arrow.svg" alt="" className="nav-arr" />
           <svg
             width="386"
@@ -107,7 +108,65 @@ export default async function Header({}: Props) {
             />
           </svg>
         </div>
-        <nav className="nav nav-right backglow">
+        {/* <button className="btn btn-ol btn-menu">
+          <GiHamburgerMenu />
+        </button> */}
+        <nav className="nav nav-right  main backglow">
+          <svg
+            width="386"
+            height="152"
+            viewBox="0 0 386 152"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="decor-slanted right"
+          >
+            <path
+              d="M142.176 151.5L1.15112 0.5H68.3147L209.34 151.5H142.176Z"
+              stroke="#F75252"
+            />
+            <path
+              d="M232.645 151.5L91.6199 0.5H158.783L299.808 151.5H232.645Z"
+              stroke="#67ADFF"
+            />
+            <path
+              d="M317.685 151.5L176.661 0.5H243.824L384.849 151.5H317.685Z"
+              stroke="#A584F3"
+            />
+          </svg>
+          <Link
+            href={"/achievements"}
+            className={`btn btn-nav ${true ? "active" : ""}`}
+          >
+            ACHIEVEMENTS
+          </Link>
+          <Link href={hd.mch} className={`btn btn-nav ${true ? "active" : ""}`}>
+            MERCHANDISE
+          </Link>
+          <Link
+            href={"/contacts"}
+            className={`btn btn-nav ${true ? "active" : ""}`}
+          >
+            CONTACT US
+          </Link>
+          <img src="/de/nav-arrow.svg" alt="" className="nav-arr right" />
+        </nav>
+
+        <nav className="nav nav-full   backglow">
+          <Link href={"/"} className={`btn btn-nav ${true ? "active" : ""}`}>
+            HOME
+          </Link>
+          <Link
+            href={"/about"}
+            className={`btn btn-nav ${true ? "active" : ""}`}
+          >
+            ABOUT
+          </Link>
+          <Link
+            href={"/talents"}
+            className={`btn btn-nav ${true ? "active" : ""}`}
+          >
+            TALENTS
+          </Link>
           <svg
             width="386"
             height="152"
