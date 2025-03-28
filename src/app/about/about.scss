@@ -1,28 +1,53 @@
+@import "mixins";
 #page_about {
   min-height: 1500px;
   #about-main {
     .confine {
-      max-width: 1100px;
+      max-width: min(1100px, 90%);
       padding-top: 5em;
+
       .a-h {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
 
         margin-bottom: 2em;
+        @include mq(768) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
         .title {
           .sub {
             font-size: 0.8rem;
+            .sh {
+              @include mq(768) {
+                font-size: 2rem;
+              }
+            }
           }
           .h {
             font-size: 4rem;
             line-height: 0.7;
+            @include mq(550) {
+              font-size: clamp(2rem, 16vw, 3rem);
+            }
           }
         }
 
         .desc {
-          text-align: right;
-          font-size: 1.2rem;
+          @include mq(768, min) {
+            text-align: right;
+            font-size: 1.2rem;
+          }
+          @include mq(768) {
+            width: 100%;
+            .p {
+              margin-top: 1em;
+            }
+            br {
+              display: none;
+            }
+          }
           .red {
             color: #f75252;
           }
@@ -37,6 +62,13 @@
         gap: 2em;
         min-height: 400px;
         position: relative;
+
+        @include mq(768) {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
         @media screen and (min-width: 1024px) {
           .sides {
             filter: drop-shadow(0px 0px 4px black);
@@ -76,6 +108,9 @@
           }
         }
         .l {
+          @include mq(768) {
+            display: none;
+          }
           border-radius: 0 0 0 5em;
 
           border-left: 3px solid #f75252;
@@ -92,6 +127,9 @@
           border-right: 3px solid #a584f3;
           img {
             border-radius: inherit;
+            @include mq(768) {
+              width: 100%;
+            }
           }
         }
         .c {
@@ -103,6 +141,9 @@
             border: 1px solid #f75252;
             border-radius: 1em;
             padding: 2em;
+            @include mq(768) {
+              width: 100%;
+            }
           }
           .b {
             display: grid;
@@ -123,15 +164,31 @@
         padding: 1em 0;
         margin: 1em 0;
         gap: 2em;
+
+        @include mq(550) {
+          align-items: flex-start;
+          margin: 0;
+        }
+        @include mq(420) {
+          flex-direction: column;
+        }
         .p {
           font-size: 1.3rem;
           color: var(--grey);
           text-shadow: 0px 0px 8px black;
+
+          @include mq(550) {
+            font-size: 1rem;
+          }
         }
 
         svg {
           animation: blink 1s infinite ease-out alternate-reverse;
           filter: drop-shadow(0px 0px 4px white);
+
+          @include mq(420) {
+            width: 100px;
+          }
         }
       }
 
@@ -146,6 +203,7 @@
   .vm {
     background: linear-gradient(to right, #232323, #23232300);
     margin: 100px 0;
+
     .confine {
       transform: translateX(2%);
       display: grid;
@@ -153,6 +211,11 @@
       gap: 80px;
       align-items: center;
       padding: 4em 0;
+
+      @include mq(768) {
+        display: flex;
+        flex-direction: column;
+      }
       figure {
         border: 2px solid var(--white);
         border-radius: 0 2em 0 2em;
@@ -191,6 +254,10 @@
           margin-bottom: 1em;
           line-height: 1.4;
           color: var(--grey);
+
+          @include mq(550) {
+            font-size: 1rem;
+          }
         }
       }
     }
@@ -275,10 +342,24 @@
       position: absolute;
       left: 0%;
       top: 30%;
+      @include mq(768) {
+        scale: 0.5;
+        transform-origin: left;
+      }
       &.l {
         left: initial;
         right: 0%;
         scale: -1 1;
+        @include mq(768) {
+          scale: -0.5 0.5;
+          // rotate: 180deg;
+          right: -8%;
+          transform-origin: left;
+        }
+
+        @include mq(550) {
+          right: -15%;
+        }
       }
     }
 
@@ -307,6 +388,13 @@
       font-size: 2rem;
       font-weight: 400;
       font-family: var(--fontAlt);
+
+      @include mq(768) {
+        font-size: 1.3rem;
+      }
+      @include mq(550) {
+        font-size: 1rem;
+      }
     }
   }
 }

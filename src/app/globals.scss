@@ -1,3 +1,4 @@
+@import "mixins";
 :root {
   --rainbow: linear-gradient(90deg, #f75252 20%, #b2cc54, #67adff, #a584f3 98%);
   --rb-c: linear-gradient(
@@ -124,15 +125,24 @@ h3,
 
 .h {
   font-size: 2rem;
+  @include mq(768) {
+    font-size: 1.5rem;
+  }
 }
 .sh {
   font-size: 1.8rem;
+  @include mq(768) {
+    font-size: 1.1rem;
+  }
 }
 .p,
 p {
   font-family: var(--fontMain);
   line-height: 1.4;
   letter-spacing: 1px;
+  @include mq(550) {
+    font-size: 0.9rem;
+  }
 }
 
 html,
@@ -330,7 +340,9 @@ body {
   p {
     font-size: 13rem;
     white-space: nowrap;
-
+    @include mq(768) {
+      font-size: 8rem;
+    }
     line-height: 90%;
     font-weight: bolder;
     color: transparent;

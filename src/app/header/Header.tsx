@@ -79,7 +79,9 @@ export default async function Header({}: Props) {
           </Link>
         </nav>
         <div className="logo-container">
-          <img src="/gfx/logo_white.png" alt="" className="logo" />
+          <Link href={"/"}>
+            <img src="/gfx/logo_white.png" alt="" className="logo " />
+          </Link>
           <svg
             width="578"
             height="325"
