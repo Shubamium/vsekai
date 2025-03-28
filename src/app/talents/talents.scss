@@ -3,6 +3,9 @@
   #talent-list {
     min-height: 100vh;
     padding: 100px 0;
+    @include mq(550) {
+      padding-top: 20px;
+    }
     .confine {
       display: grid;
       grid-template-columns: 1fr 1.5fr;

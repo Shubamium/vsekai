@@ -8,8 +8,6 @@ export default function LoadingScreen({}: Props) {
   const [safeToRemove, setSafeToRemove] = useState(false);
   useEffect(() => {
     setTimeout(() => {
-      setD(true);
-
       setTimeout(() => {
         setSafeToRemove(true);
       }, 1300);

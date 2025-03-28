@@ -1,3 +1,4 @@
+@import "mixins";
 #loading-screen {
   position: fixed;
   height: 100%;
@@ -28,17 +29,29 @@
     display: flex;
     flex-direction: column;
     gap: 2em;
+    @include mq(550) {
+      gap: 1em;
+    }
   }
   .rb-line {
     height: 10px;
+    @include mq(550) {
+      height: 5px;
+    }
   }
   .mi {
     width: 350px;
+    @include mq(550) {
+      width: 150px;
+    }
   }
   .p {
     font-size: 3rem;
     text-transform: uppercase;
     animation: blink 0.5s infinite linear alternate-reverse;
+    @include mq(550) {
+      font-size: 1rem;
+    }
   }
   transition: all 1500ms ease;
 
