@@ -1,17 +1,31 @@
+@import "mixins";
+
 #page_achievements {
   #achievement {
     padding-top: 100px;
+    @include mq(550) {
+      padding-top: 10px;
+    }
     .confine {
       display: grid;
       grid-template-columns: 2fr 1fr;
       gap: 4em;
       position: relative;
+
+      @include mq(1024) {
+        display: flex;
+        flex-direction: column;
+      }
       .slide {
         position: relative;
         .al {
           position: absolute;
           left: -5%;
           top: 0%;
+          @include mq(768) {
+            scale: 0.5;
+          }
+
           z-index: 1;
         }
         .ar {
@@ -19,11 +33,17 @@
           right: -5%;
           z-index: 1;
           bottom: 10%;
+          @include mq(768) {
+            scale: 0.5;
+          }
         }
         .display {
           position: relative;
           border-radius: 2em 2em 2em;
           height: 500px;
+          @include mq(1024) {
+            height: auto;
+          }
           &::before,
           &::after {
             scale: 1.005;
@@ -32,6 +52,7 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
+
             background: #1d1d1d;
             border-radius: inherit;
           }
@@ -44,15 +65,29 @@
             display: flex;
             align-items: center;
             gap: 1em;
+            flex-wrap: wrap;
+            @include mq(550) {
+              gap: 0.4em;
+            }
             .p {
               width: 10px;
               border-radius: 1em;
               height: 10px;
               background: white;
               opacity: 0.2;
+
+              @include mq(550) {
+                width: 5px;
+                height: 5px;
+              }
               &.c {
                 opacity: 1;
               }
+            }
+          }
+          .btn-ol {
+            @include mq(550) {
+              font-size: 1rem;
             }
           }
           justify-content: space-between;
@@ -135,6 +170,9 @@
       display: flex;
       flex-direction: column;
       gap: 2em;
+      @include mq(768) {
+        left: 5px;
+      }
       .line {
         width: 3px;
         height: 500px;
@@ -146,6 +184,11 @@
         width: 100px;
         background: var(--white);
         clip-path: polygon(0 0, 0% 100%, 100% 100%);
+
+        @include mq(550) {
+          width: 50px;
+          height: 50px;
+        }
       }
       &.r {
         left: initial;
@@ -155,6 +198,9 @@
         right: 40px;
         top: 5%;
 
+        @include mq(768) {
+          right: 5px;
+        }
         .line {
         }
         .t {
@@ -167,6 +213,9 @@
       position: relative;
       z-index: 10;
       filter: drop-shadow(0px 0px 4px black);
+      @include mq(1024) {
+        max-width: 80%;
+      }
       .decor-icon {
         height: 700px;
         width: 700px;
@@ -175,27 +224,47 @@
         top: 0%;
         right: 0%;
         opacity: 0.04;
+        @include mq(550) {
+          height: 400px;
+          width: 400px;
+        }
       }
       .desc {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
         gap: 5em;
         position: relative;
+
+        @include mq(550) {
+          gap: 2em;
+          display: flex;
+          flex-direction: column;
+        }
       }
 
       .title {
         .sh {
           font-size: 2rem;
+          @include mq(550) {
+            font-size: 1.2rem;
+          }
         }
         .h {
           font-size: 3.4rem;
           line-height: 90%;
+
+          @include mq(550) {
+            font-size: 2.5rem;
+          }
         }
         margin-bottom: 4em;
       }
       .p {
         color: var(--grey);
         margin-bottom: 2em;
+        @include mq(550) {
+          font-size: clamp(0.9rem, 2vw, 1.5rem);
+        }
       }
     }
   }

@@ -137,7 +137,13 @@ export default function page({}: Props) {
             />
           </svg>
         </section>
-        <form id="contact-f">
+        <form
+          id="contact-f"
+          onSubmit={(e) => {
+            e.preventDefault();
+            submit();
+          }}
+        >
           <div className="bg-rainbow"></div>
           <div className="fg">
             <div className="ff">
@@ -220,14 +226,7 @@ export default function page({}: Props) {
                   <FaDiscord />
                 </a>
               </div>
-              <button
-                className="btn btn-send"
-                type="submit"
-                onClick={(e) => {
-                  e.preventDefault();
-                  submit();
-                }}
-              >
+              <button className="btn btn-send" type="submit">
                 <p>SEND</p>
                 <svg
                   width="35"

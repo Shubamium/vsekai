@@ -1,7 +1,11 @@
+@import "mixins";
 #page_contact {
   margin-top: 100px;
   margin-bottom: 300px;
 
+  @include mq(550) {
+    margin-top: 20px;
+  }
   .cload {
     position: fixed;
     width: 100%;
@@ -70,16 +74,29 @@
   #contact-h {
     display: flex;
     align-items: center;
+    @include mq(550) {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
     .title {
       .sub {
         width: fit-content;
       }
       .h {
         font-size: 3rem;
+
+        @include mq(420) {
+          font-size: 2.3rem;
+        }
       }
     }
     .svjaw {
       margin-left: 2em;
+
+      @include mq(550) {
+        margin-left: 0;
+        margin-bottom: 1em;
+      }
     }
   }
 
@@ -110,6 +127,10 @@
       border: none;
       width: 100%;
       height: 100%;
+
+      @include mq(420) {
+        border-radius: 0 0.5em 0.5em 0;
+      }
       &::before {
         scale: 1.1;
       }
@@ -129,6 +150,9 @@
     .backglow {
       position: relative;
       border-radius: 0 50px 50px 0;
+      @include mq(420) {
+        border-radius: 0 0.5em 0.5em 0;
+      }
       &:has(textarea) {
         &::before,
         &::after {
@@ -142,6 +166,9 @@
       gap: 0.1em;
       font-size: 1.5rem;
       font-weight: 500;
+      @include mq(550) {
+        font-size: 1.2rem;
+      }
       label {
         font-family: var(--fontMain);
         font-weight: 500;
@@ -155,6 +182,11 @@
       grid-template-columns: 1fr 1fr;
       gap: 2em;
       margin-block: 2em;
+
+      @include mq(768) {
+        display: flex;
+        flex-direction: column;
+      }
     }
 
     .contact-m {
@@ -162,18 +194,39 @@
       grid-template-columns: 1fr 180px;
       gap: 2em;
 
+      @include mq(550) {
+        display: flex;
+        flex-direction: column;
+      }
       .r {
         display: flex;
         flex-direction: column;
         gap: 1em;
         align-items: flex-start;
         padding-top: 2.5em;
+
+        @include mq(550) {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
         .socials {
           display: flex;
           flex-wrap: wrap;
           // flex-grow: 1;
           // grid-template-columns: ;
           gap: 1em;
+          @include mq(468) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            .btn-icon,
+            .logo {
+              height: 100%;
+              width: 100%;
+            }
+          }
+        }
+        @include mq(550) {
+          align-items: center;
         }
         .btn-send {
           height: 100%;
@@ -183,6 +236,12 @@
           border-radius: 0.5em;
 
           display: flex;
+          @include mq(550) {
+            height: 200px;
+          }
+          @include mq(420) {
+            height: 150px;
+          }
           p {
             font-size: 2rem;
             color: black;
@@ -234,11 +293,36 @@
         clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 42% 100%, 0 75%);
         height: 50px;
         background: var(--grey);
+        @include mq(550) {
+          height: 30px;
+        }
       }
       p {
         color: var(--grey);
         font-size: 1.2rem;
         max-width: 50%;
+        @include mq(1024) {
+          font-size: 1rem;
+          max-width: 90%;
+        }
+        @include mq(550) {
+          font-size: clamp(0.8rem, 3.5vw, 1.1rem);
+        }
+      }
+    }
+    @include mq(768) {
+      .r {
+        width: 30%;
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    @include mq(550) {
+      .r {
+        display: none;
       }
     }
   }

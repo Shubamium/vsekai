@@ -1,3 +1,4 @@
+@import "mixins";
 #page_talents {
   #talent-list {
     min-height: 100vh;
@@ -7,6 +8,10 @@
       grid-template-columns: 1fr 1.5fr;
       gap: 100px;
 
+      @include mq(768) {
+        display: flex;
+        flex-direction: column;
+      }
       .tl-h {
         .rb {
           display: flex;
@@ -37,6 +42,9 @@
             left: -100%;
             bottom: -10%;
             scale: 1.5;
+            @include mq(550) {
+              scale: 1;
+            }
           }
           &::before {
             content: "";
@@ -57,6 +65,10 @@
             }
             .h {
               font-size: 4rem;
+
+              @include mq(420) {
+                font-size: 3rem;
+              }
             }
             margin-bottom: 1em;
           }
@@ -64,6 +76,10 @@
             font-size: 1rem;
             color: var(--grey);
             margin-bottom: 1em;
+
+            @include mq(550) {
+              font-size: 0.9rem;
+            }
           }
         }
       }
@@ -97,6 +113,12 @@
                 font-family: var(--fontAlt);
                 padding-left: 30px;
                 letter-spacing: -1px;
+                @include mq(550) {
+                  font-size: 1.5rem;
+                }
+                @include mq(420) {
+                  font-size: 1.3rem;
+                }
               }
               position: relative;
               .claw {
@@ -120,6 +142,9 @@
 
             padding: 2em 0;
             gap: 1em;
+            @include mq(550) {
+              justify-content: center;
+            }
             .tlcard {
               &:hover {
                 scale: 1.05;

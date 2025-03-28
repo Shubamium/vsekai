@@ -1,3 +1,4 @@
+@import "mixins";
 #page_talent {
   --accent: #de8f57;
   #talent {
@@ -12,7 +13,7 @@
     }
     .talent-part {
       .bg-text {
-        top: 28%;
+        top: 10%;
         opacity: 0.05;
         p {
           font-size: 10rem;
@@ -24,14 +25,26 @@
         justify-content: center;
         display: grid;
         grid-template-columns: 500px 1fr;
-        max-width: 1000px;
+        max-width: min(1000px, 90%);
         position: relative;
+
+        @include mq(1024) {
+          grid-template-columns: 400px 1fr;
+        }
+        @include mq(768) {
+          display: flex;
+          flex-direction: column-reverse;
+        }
         .tcl {
           position: absolute;
           z-index: -15;
           bottom: 20%;
           left: -15%;
           scale: 0.8;
+          @include mq(550) {
+            bottom: 0%;
+            left: -5%;
+          }
         }
         .tcr {
           position: absolute;
@@ -45,6 +58,13 @@
           width: 500px;
           position: relative;
 
+          @include mq(1024) {
+            width: 100%;
+          }
+
+          @include mq(550) {
+            height: auto;
+          }
           .tsa {
             position: absolute;
             top: 2%;
@@ -148,7 +168,9 @@
               font-size: 5rem;
               line-height: 0.8;
               margin-bottom: 0.2em;
-
+              @include mq(550) {
+                font-size: clamp(1rem, 11vw, 5rem);
+              }
               &.ns {
                 position: absolute;
                 color: transparent;
@@ -191,9 +213,10 @@
 
           .infos {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 1em 0.5em;
             margin: 1em 0;
+
             .info {
               width: 100%;
               display: flex;
@@ -342,6 +365,13 @@
         left: initial;
         right: -200px;
       }
+
+      @include mq(550) {
+        top: -10%;
+        height: 400px;
+        width: 400px;
+        z-index: -10;
+      }
     }
     .td-h {
       display: flex;
@@ -349,10 +379,15 @@
       margin: 1em auto;
       .h {
         font-size: 4rem;
+        @include mq(768) {
+          font-size: clamp(1rem, 9vw, 4rem);
+          white-space: nowrap;
+        }
       }
       svg {
         height: 45px;
       }
+      position: relative;
     }
     .td-v {
       margin-top: 3em;
@@ -366,9 +401,18 @@
             border-radius: 2em 0;
             // min-height: 190px;
             aspect-ratio: 16/9;
+
+            @include mq(550) {
+              // height: 200px;
+              aspect-ratio: 16 / 9;
+              height: auto;
+            }
           }
         }
         .vid-d {
+          @include mq(550) {
+            padding-bottom: 2em;
+          }
           .p {
             font-size: 1.2rem;
             color: var(--grey);
@@ -383,6 +427,13 @@
       justify-content: space-between;
       margin: 150px auto;
       align-items: center;
+      @include mq(1024) {
+        flex-direction: column;
+      }
+      @include mq(550) {
+        margin: 50px auto;
+      }
+
       .l {
         position: relative;
         &::before {
@@ -401,6 +452,9 @@
           max-width: 90%;
           font-weight: bolder;
           line-height: 100%;
+          @include mq(550) {
+            font-size: 2rem;
+          }
         }
       }
       .r {
